@@ -250,5 +250,5 @@ class EPD_7in5_B:
         if not isinstance(tile, tiles.Tile):
             raise TypeError("Invalid tile type passed.")
             
-        self.imageblack.blit(tile.get_canvas_black(), tile.x, tile.x, tile.width, tile.height, 0)
-        self.imagered.blit(tile.get_canvas_red(), tile.x, tile.x, tile.width, tile.height, 0)
+        self.imageblack.blit(tile.get_canvas_black(), tile.x, tile.y)
+        self.imagered.blit(tile.get_canvas_red(), tile.x, tile.y)
