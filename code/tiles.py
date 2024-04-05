@@ -20,7 +20,26 @@ class Tile():
         self.y = y
         self.x = x"""
     
+class dynamic_Tile():
+    def __init__(self, tiles, x, y):
+        self.tiles= tiles
+        self.num_tiles = tiles.len()
+        self.current_index = 0
     
+    def next_tile(self):
+        self.current_index = (self.current_index + 1) % self.num_tiles
+
+    def prev_tile(self):
+        self.current_index = (self.current_index - 1) % self.num_tiles
+
+    def get_canvas_black(self):
+        return self.tiles[self.current_index].get_canvas_black()
+        
+    def get_canvas_red(self):
+        return self.tiles[self.current_index].get_canvas_red()
+
+
+
 class Template_Tile(Tile):
     width = 200
     height = 200
