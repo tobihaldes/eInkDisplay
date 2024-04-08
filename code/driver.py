@@ -27,6 +27,14 @@
 # THE SOFTWARE.
 #
 
+#########################################################################
+# Modified code is Marked wit a comment with following syntax:
+
+### Custom line ###
+
+###################
+
+#########################################################################
 from machine import Pin, SPI
 import framebuf
 import utime
@@ -42,7 +50,11 @@ CS_PIN          = 9
 BUSY_PIN        = 13
 
 class EPD_7in5_B:
-    def __init__(self):
+    def __init__(self, tiles):
+        ### Custom line ###
+        self.tiles = tiles
+        ###################
+        
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
         
         self.busy_pin = Pin(BUSY_PIN, Pin.IN, Pin.PULL_UP)
@@ -218,6 +230,8 @@ class EPD_7in5_B:
         
     def display(self):
         
+        self.refresh_framebuffer()
+        
         high = self.height
         if( self.width % 8 == 0) :
             wide =  self.width // 8
@@ -245,10 +259,25 @@ class EPD_7in5_B:
 
 
 
-    # Custom method for copying the Tile framebuffer onto the display framebuffer
+    ### Custom method ###
+    """
     def draw_Tile(self, tile):
         if not isinstance(tile, tiles.Tile):
             raise TypeError("Invalid tile type passed.")
             
         self.imageblack.blit(tile.get_canvas_black(), tile.x, tile.y)
         self.imagered.blit(tile.get_canvas_red(), tile.x, tile.y)
+   """
+        
+    def refresh_framebuffer(self):
+        for tile in self.tiles:
+            if not isinstance(tile, tiles.Tile):
+                raise TypeError("Invalid tile type passed.")
+        
+            self.imageblack.blit(tile.get_canvas_black(), tile.x, tile.y)
+            self.imagered.blit(tile.get_canvas_red(), tile.x, tile.y)
+            
+        
+    #####################
+     
+    

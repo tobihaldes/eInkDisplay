@@ -20,10 +20,12 @@ class Tile():
         self.y = y
         self.x = x"""
     
-class dynamic_Tile():
-    def __init__(self, tiles, x, y):
+class dynamic_Tile(Tile):
+    def __init__(self, x, y, tiles):
+        self.y = y
+        self.x = x
         self.tiles= tiles
-        self.num_tiles = tiles.len()
+        self.num_tiles = len(tiles)
         self.current_index = 0
     
     def next_tile(self):
@@ -46,7 +48,7 @@ class Template_Tile(Tile):
 
     def get_canvas_black(self):
         can = self.canvas_black
-        black = 0xff
+        black = 0x00
         
         can.fill(0xff)
         can.rect(0, 0, self.width, self.height, black)
@@ -58,18 +60,17 @@ class Template_Tile(Tile):
         red = 0xff
         
         can.fill(0x00)
-        can.rect(0, 0, self.width, self.height, red)
 
         return can
     
-class Wheather_Tile(Tile):
+class Weather_Tile(Tile):
     width = 200
     height = 200
 
     def get_canvas_black(self):
         self.canvas_black.fill(0xff)
         self.canvas_black.rect(0, 0, 50, 50, 0x00, True)
-        self.canvas_black.text("Wheather Tile!", 96, 100, 0x00)
+        self.canvas_black.text("Weather Tile!", 96, 100, 0x00)
         self.canvas_black.rect(0, 0, self.width, self.height, 0x00)
 
         return self.canvas_black
