@@ -6,7 +6,7 @@ wlan = network.WLAN(network.STA_IF)
 wlan.active(True)  # Aktivieren der WLAN-Schnittstelle
 
 # Verbindung zum WLAN-Netzwerk
-wlan.connect('Leon', '12348765')
+wlan.connect('Notebook von Tobi', '1357924680')
 
 # Warten auf die Verbindung
 while not wlan.isconnected() and wlan.status() >= 0:
