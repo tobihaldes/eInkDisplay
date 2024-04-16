@@ -1,28 +1,18 @@
-import urequests as requests
-import time
+import urequests
 
-# Angenommen, die API akzeptiert einen 'limit' Parameter, um die Anzahl der Ergebnisse zu begrenzen
-url = 'https://www.tagesschau.de/api2/news/?regions=1&ressort=inland&limit=5'
+url = 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
 
-while True:
-    headers = {
-        'Accept': 'application/json',
-    }
-    
-    res = requests.get(url=url, headers=headers)
-    
-    if res.status_code == 200:
-        try:
-            data = res.json()
-            news_items = data.get('news', [])[:5]
-            
-            for item in news_items:
-                print(item.get('title', 'Kein Titel verfügbar'))
+response = urequests.get(url)
 
-            time.sleep(10)
-        except MemoryError:
-            print("MemoryError: Die Antwort ist zu groß, um verarbeitet zu werden.")
-    else:
-        print(f'Fehler bei der Anfrage: HTTP-Statuscode {res.status_code}')
-    
-    res.close()
+if response.status_code == 200:
+    data = response.json()  # Konvertiert die Antwort in ein Python-Diktat
+    feed = data.get('feed', [])  # Holt das 'feed' Array aus der Antwort
+
+    # Iteriert über die ersten fünf Einträge im 'feed' Array und druckt ihre Titel
+    for article in feed[:5]:
+        print(article.get('title', 'Kein Titel verfügbar'))  # Druckt den Titel jedes Artikels
+
+else:
+    print('Fehler bei der Anfrage:', response.status_code)
+
+response.close()
