@@ -1,6 +1,6 @@
 import urequests
 
-# Wettercode-Zuordnung basierend auf WMO-Codes (vereinfachte und exemplarische Liste)
+# Wettercode-Zuordnung basierend auf WMO-Codes
 weather_code_mapping = {
     0: "Klarer Himmel",
     1: "Teilweise bewölkt",
@@ -31,26 +31,34 @@ weather_code_mapping = {
     99: "Gewitter mit Hagel",
 }
 
-api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
+def get_weather_forecast(api_url):
+    """Holt die Wettervorhersage und gibt die Details für die nächsten Tage zurück."""
+    try:
+        response = urequests.get(api_url)
+        if response.status_code == 200:
+            json_data = response.json()
+            daily_data = json_data["daily"]
+            forecast = []
 
-try:
-    response = urequests.get(api_url)
-    if response.status_code == 200:
-        json_data = response.json()
-        daily_data = json_data["daily"]
-
-        for i in range(len(daily_data["time"])):
-            date = daily_data["time"][i]
-            weather_code = daily_data["weather_code"][i]
-            weather_description = weather_code_mapping.get(weather_code, "Unbekannter Wettercode")
-            max_temp = daily_data["temperature_2m_max"][i]
-            min_temp = daily_data["temperature_2m_min"][i]
-            print(f"Datum: {date}, Wetter: {weather_description}, Max Temp: {max_temp}°C, Min Temp: {min_temp}°C")
-
+            for i in range(len(daily_data["time"])):
+                date = daily_data["time"][i]
+                weather_code = daily_data["weather_code"][i]
+                weather_description = weather_code_mapping.get(weather_code, "Unbekannter Wettercode")
+                max_temp = daily_data["temperature_2m_max"][i]
+                min_temp = daily_data["temperature_2m_min"][i]
+                forecast.append({
+                    "date": date,
+                    "weather": weather_description,
+                    "max_temp": f"{max_temp}°C",
+                    "min_temp": f"{min_temp}°C"
+                })
+            
+            return forecast
+        else:
+            print(f"Fehler beim Abrufen der Daten von der API: Statuscode {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"Fehler beim Abrufen der Daten von der API: {e}")
+        return None
+    finally:
         response.close()
-    else:
-        print(f"Fehler beim Abrufen der Daten von der API: Statuscode {response.status_code}")
-        response.close()
-
-except Exception as err:
-    print(f"Fehler beim Abrufen der Daten von der API: {err}")
