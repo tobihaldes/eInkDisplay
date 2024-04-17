@@ -8,6 +8,9 @@ class Tile():
     def __init__(self, x, y):
         self.y = y
         self.x = x
+        """self.canvas_black = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
+        self.canvas_red = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)"""
+    def init(self):
         self.canvas_black = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
         self.canvas_red = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
     def get_canvas_black(self):
@@ -47,6 +50,7 @@ class Template_Tile(Tile):
     height = 200
 
     def get_canvas_black(self):
+        self.init()
         can = self.canvas_black
         black = 0x00
         
@@ -56,6 +60,7 @@ class Template_Tile(Tile):
         return can
 
     def get_canvas_red(self):
+        self.init()
         can = self.canvas_red
         red = 0xff
         
@@ -68,6 +73,7 @@ class Weather_Tile(Tile):
     height = 200
 
     def get_canvas_black(self):
+        self.init()
         self.canvas_black.fill(0xff)
         self.canvas_black.rect(0, 0, 50, 50, 0x00, True)
         self.canvas_black.text("Weather Tile!", 96, 100, 0x00)
@@ -76,6 +82,7 @@ class Weather_Tile(Tile):
         return self.canvas_black
 
     def get_canvas_red(self):
+        self.init()
         self.canvas_red.fill(0x00)
         self.canvas_red.rect(50, 50, 50, 50, 0xff, True)
         
@@ -83,10 +90,11 @@ class Weather_Tile(Tile):
     
     
 class Calender_Tile(Tile):
-    width = 200
+    width = 400
     height = 200
 
     def get_canvas_black(self):
+        self.init()
         self.canvas_black.fill(0xff)
         self.canvas_black.rect(50, 50, 50, 50, 0x00, True)
         self.canvas_black.rect(0, 0, self.width, self.height, 0x00)
@@ -95,6 +103,7 @@ class Calender_Tile(Tile):
         return self.canvas_black
 
     def get_canvas_red(self):
+        self.init()
         self.canvas_red.fill(0x00)
         self.canvas_red.rect(0, 0, 50, 50, 0xff, True)
         
