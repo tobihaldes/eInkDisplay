@@ -1,5 +1,9 @@
 import framebuf
 
+
+black = 0x00
+red = 0xff
+
 # Parent class that defines Basic function for all tiles
 class Tile():
     width = 100
@@ -8,25 +12,18 @@ class Tile():
     def __init__(self, x, y):
         self.y = y
         self.x = x
-        """self.canvas_black = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
-        self.canvas_red = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)"""
-    def init(self):
-        self.canvas_black = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
-        self.canvas_red = framebuf.FrameBuffer(bytearray(self.height * self.width // 8), self.width, self.height, framebuf.MONO_HLSB)
-    def get_canvas_black(self):
-        return self.canvas_black
         
-    def get_canvas_red(self):
-        return self.canvas_red
+    def draw_canvas(self, can):
+        print("a")
+        can.imageblack.fill(0xff)
+        can.imagered.fill(0x00)
     
     """def move(self, x, y):
         self.y = y
         self.x = x"""
     
-class dynamic_Tile(Tile):
-    def __init__(self, x, y, tiles):
-        self.y = y
-        self.x = x
+class tile_gallery(Tile):
+    def __init__(self, tiles):
         self.tiles= tiles
         self.num_tiles = len(tiles)
         self.current_index = 0
@@ -36,75 +33,35 @@ class dynamic_Tile(Tile):
 
     def prev_tile(self):
         self.current_index = (self.current_index - 1) % self.num_tiles
-
-    def get_canvas_black(self):
-        return self.tiles[self.current_index].get_canvas_black()
-        
-    def get_canvas_red(self):
-        return self.tiles[self.current_index].get_canvas_red()
-
+    
+    def draw_canvas(self, can):
+        self.tiles[self.current_index].draw_canvas(can)
 
 
 class Template_Tile(Tile):
-    width = 200
-    height = 200
+    width = 400
+    height = 400
 
-    def get_canvas_black(self):
-        self.init()
-        can = self.canvas_black
-        black = 0x00
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         
-        can.fill(0xff)
-        can.rect(0, 0, self.width, self.height, black)
-
-        return can
-
-    def get_canvas_red(self):
-        self.init()
-        can = self.canvas_red
-        red = 0xff
-        
-        can.fill(0x00)
-
-        return can
     
 class Weather_Tile(Tile):
     width = 200
     height = 200
-
-    def get_canvas_black(self):
-        self.init()
-        self.canvas_black.fill(0xff)
-        self.canvas_black.rect(0, 0, 50, 50, 0x00, True)
-        self.canvas_black.text("Weather Tile!", 96, 100, 0x00)
-        self.canvas_black.rect(0, 0, self.width, self.height, 0x00)
-
-        return self.canvas_black
-
-    def get_canvas_red(self):
-        self.init()
-        self.canvas_red.fill(0x00)
-        self.canvas_red.rect(50, 50, 50, 50, 0xff, True)
-        
-        return self.canvas_red
     
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+        can.imageblack.rect(self.x+0, self.y+0, 50, 50, black, True)
+        can.imagered.rect(self.x+50, self.y+50, 50, 50, red, True)
+        can.imageblack.text("Weather Tile!", 96, 100, black)
     
 class Calender_Tile(Tile):
-    width = 400
+    width = 200
     height = 200
-
-    def get_canvas_black(self):
-        self.init()
-        self.canvas_black.fill(0xff)
-        self.canvas_black.rect(50, 50, 50, 50, 0x00, True)
-        self.canvas_black.rect(0, 0, self.width, self.height, 0x00)
-        self.canvas_black.text("Calender Tile!", 96, 100, 0x00)
-
-        return self.canvas_black
-
-    def get_canvas_red(self):
-        self.init()
-        self.canvas_red.fill(0x00)
-        self.canvas_red.rect(0, 0, 50, 50, 0xff, True)
-        
-        return self.canvas_red
+    
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+        can.imageblack.rect(self.x+50, self.y+50, 50, 50, black, True)
+        can.imagered.rect(self.x+0, self.y+0, 50, 50, red, True)
+        can.imageblack.text("Calender Tile!", self.x+96, self.y+100, black)

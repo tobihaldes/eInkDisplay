@@ -39,6 +39,7 @@ from machine import Pin, SPI
 import framebuf
 import utime
 import tiles
+import gc
 
 # Display resolution
 EPD_WIDTH       = 800
@@ -270,12 +271,12 @@ class EPD_7in5_B:
    """
         
     def refresh_framebuffer(self):
+        self.imageblack.fill(0xff)
+        self.imagered.fill(0x00)
         for tile in self.tiles:
             if not isinstance(tile, tiles.Tile):
                 raise TypeError("Invalid tile type passed.")
-        
-            self.imageblack.blit(tile.get_canvas_black(), tile.x, tile.y)
-            self.imagered.blit(tile.get_canvas_red(), tile.x, tile.y)
+            tile.draw_canvas(self)
             
         
     #####################
