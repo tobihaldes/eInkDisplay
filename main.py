@@ -6,12 +6,12 @@ import gc
 
 def button_next(pin):
     print("next tile")
-    dynTile.next_tile()
+    tile_gallery.next_tile()
     display.display()
 
 def button_prev(pin):
     print("previous tile")
-    dynTile.prev_tile()
+    tile_gallery.prev_tile()
     display.display()
    
 if __name__=='__main__':
@@ -24,27 +24,29 @@ if __name__=='__main__':
     
     # Layout
     gallery = tiles.tile_gallery([
-            tiles.Template_Tile(0,0),
-            tiles.Calender_Tile(0,0),
-            tiles.Weather_Tile(0,0),
+#             tiles.Template_Tile(0,0),
+#             tiles.Calender_Tile(0,0),
+             tiles.Weather_Tile_l(0,0),
+             tiles.Weather_Tile_s(0,0),
             ])
     
     layout = [
-         tiles.Weather_Tile_l(0, 0),
-        tiles.Weather_Tile_s(560, 0),
+        #tiles.Weather_Tile_l(0, 0),
+        tiles.Clock_Tile_s(560, 0),
         tiles.Weather_Tile_s(560, 240),
         #tiles.Calender_Tile(200, 0),
         #tiles.Template_Tile(400, 0),
         #tiles.Template_Tile(0,200),
-        #gallery,
+        gallery,
         ]
     
     # initiate Display Objekt
     display = driver.EPD_7in5_B(layout)
     
     #display.Clear()
-    display.imageblack.fill(0xff)
     display.imagered.fill(0x00)
+    display.imageblack.fill(0xff)
+    
 
     while True:
         display.display()
