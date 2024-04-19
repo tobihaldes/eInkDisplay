@@ -24,17 +24,19 @@ if __name__=='__main__':
     
     # Layout
     gallery = tiles.tile_gallery([
-            tiles.Template_Tile(0,200),
-            tiles.Calender_Tile(0,200),
-            tiles.Weather_Tile(0,200),
+            tiles.Template_Tile(0,0),
+            tiles.Calender_Tile(0,0),
+            tiles.Weather_Tile(0,0),
             ])
     
     layout = [
-        tiles.Weather_Tile(0, 0),
-        tiles.Calender_Tile(200, 0),
-        tiles.Template_Tile(400, 0),
+         tiles.Weather_Tile_l(0, 0),
+        tiles.Weather_Tile_s(560, 0),
+        tiles.Weather_Tile_s(560, 240),
+        #tiles.Calender_Tile(200, 0),
+        #tiles.Template_Tile(400, 0),
         #tiles.Template_Tile(0,200),
-        gallery,
+        #gallery,
         ]
     
     # initiate Display Objekt
