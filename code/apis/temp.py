@@ -53,8 +53,9 @@ else:
     print("Keine Aufgaben gefunden oder Fehler bei der Abfrage.")
 
 # Aktienkurs für Apple
+symbol = 'AAPL' #Microsoft: MSFT, Amazon: AMZN,...
 api_key = '7I5ZTASNKQWHN3PT'
-stocks.stock_price(api_key)
+stocks.stock_price(symbol, api_key)
 
 
 print(gc.mem_free())
