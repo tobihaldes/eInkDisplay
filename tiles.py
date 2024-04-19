@@ -590,9 +590,7 @@ class Weather_Tile_s(Tile):
     
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.rect(self.x+0, self.y+0, 50, 50, black, True)
-        can.imagered.rect(self.x+50, self.y+50, 50, 50, red, True)
-        can.imageblack.text("Weather Tile small!", self.x+96, self.y+100, black)
+        can.imageblack.text("Datum: Heute", self.x+70, self.y+15, black)
         
     
 class Weather_Tile_l(Tile):
@@ -601,11 +599,25 @@ class Weather_Tile_l(Tile):
     
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.rect(self.x+0, self.y+0, 50, 50, black, True)
-        can.imagered.rect(self.x+50, self.y+50, 50, 50, red, True)
-        can.imageblack.text("Weather Tile large!", 96, 100, black)
-        can.imagered.ellipse(self.x+100, self.y+100, 108, 108, red, True)
-        can.imageblack.ellipse(self.x+100, self.y+100, 90, 90, white, True)
+        
+        #Gitternetzlinien
+        #Horizontal
+        can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
+        #Vertikal oben
+        can.imageblack.rect(self.x+186, self.y+10, 2, 220, black, True)
+        can.imageblack.rect(self.x+373, self.y+10, 2, 220, black, True)
+        #vertikal unten
+        can.imageblack.rect(self.x+186, self.y+250, 2, 220, black, True)
+        can.imageblack.rect(self.x+373, self.y+250, 2, 220, black, True)
+        
+        #Datum oben
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+25, self.y+15, black)
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+212, self.y+15, black)
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+399, self.y+15, black)
+        #Datum unten
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+25, self.y+255, black)
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+212, self.y+255, black)
+        can.imageblack.text("Datum: tt.mm.jjjj", self.x+399, self.y+255, black)
         
         
     
