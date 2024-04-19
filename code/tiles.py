@@ -591,7 +591,7 @@ class Weather_Tile_s(Tile):
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         can.imageblack.text("Datum: Heute", self.x+70, self.y+15, black)
-        
+        can.imageblack.rect(self.x+70, self.y+30, 100, 100, black, True)
     
 class Weather_Tile_l(Tile):
     width = 560
@@ -619,7 +619,14 @@ class Weather_Tile_l(Tile):
         can.imageblack.text("Datum: tt.mm.jjjj", self.x+212, self.y+255, black)
         can.imageblack.text("Datum: tt.mm.jjjj", self.x+399, self.y+255, black)
         
-        
+        #Wetter Icons oben
+        can.imageblack.rect(self.x+43, self.y+30, 100, 100, black, True)
+        can.imageblack.rect(self.x+230, self.y+30, 100, 100, black, True)
+        can.imageblack.rect(self.x+417, self.y+30, 100, 100, black, True)
+        #Wetter Icons unten
+        can.imageblack.rect(self.x+43, self.y+270, 100, 100, black, True)
+        can.imageblack.rect(self.x+230, self.y+270, 100, 100, black, True)
+        can.imageblack.rect(self.x+417, self.y+270, 100, 100, black, True)
     
 # class Calender_Tile(Tile):
 #     width = 200
