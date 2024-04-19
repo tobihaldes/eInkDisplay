@@ -5,6 +5,7 @@ import calendar
 import News
 import weather
 import gc
+import toDo
 
 print(gc.mem_free())
 
@@ -38,5 +39,17 @@ weather_forecast = weather.get_weather_forecast(api_url)
 if weather_forecast:
     for day_weather in weather_forecast:
         print(f"Datum: {day_weather['date']}, Wetter: {day_weather['weather']}, Max Temp: {day_weather['max_temp']}, Min Temp: {day_weather['min_temp']}")
+
+
+# ToDo-Liste
+api_token = '7809ef7ce9f614f403703e7a9368e699f88e5348'
+project_id = '2331941260'
+tasks = toDo.toDoList(api_token, project_id)
+if tasks:
+    for content, due_date in tasks:
+        print(f"Aufgabe: {content}, Fällig am: {due_date}")
+else:
+    print("Keine Aufgaben gefunden oder Fehler bei der Abfrage.")
+
 
 print(gc.mem_free())
