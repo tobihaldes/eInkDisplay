@@ -71,8 +71,8 @@ class Clock_Tile_s(Tile):
             #Z1rechts unten
             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
             #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
+            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)  
+        
             #Z2rechts oben
             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
             #Z2rechts unten
@@ -590,8 +590,37 @@ class Weather_Tile_s(Tile):
     
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.text("Datum: Heute", self.x+70, self.y+15, black)
-        can.imageblack.rect(self.x+70, self.y+30, 100, 100, black, True)
+        can.imageblack.text("Datum: Heute", self.x+70, self.y+16, black)
+        can.imagered.text("Max Temperatur: 22", self.x+45, self.y+211, red)
+        can.imageblack.text("Min Temperatur: 12", self.x+45, self.y+226, black)
+        can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
+    
+        y_row_counter = 0
+        row_count = 0
+        max_rows = 4
+        cols = 210 // 8 #Breite des Textfeldes
+        current_row = ''
+        last_space_index = -1  
+        text = "Das ist eine ganz lange Beschreibung fuer das heutige Wetter."
+        
+        for i in range(len(text)):
+            current_row += text[i]
+            if text[i] == ' ':
+                last_space_index = i  
+            if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
+                # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
+                can.imageblack.text(current_row[:last_space_index], self.x+12, self.y+161 + y_row_counter, black)
+                # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
+                current_row = current_row[last_space_index + 1:]
+                y_row_counter += 8  # Zeilenhöhe
+                row_count += 1
+                last_space_index = -1 
+                if row_count >= max_rows:
+                    break
+        # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
+        if current_row:
+            can.imageblack.text(current_row, self.x+12, self.y+161 + y_row_counter, black) 
+    
     
 class Weather_Tile_l(Tile):
     width = 560
@@ -599,34 +628,59 @@ class Weather_Tile_l(Tile):
     
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        
-        #Gitternetzlinien
-        #Horizontal
+        #Gitternetzlinien Horizontal
         can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
-        #Vertikal oben
-        can.imageblack.rect(self.x+186, self.y+10, 2, 220, black, True)
-        can.imageblack.rect(self.x+373, self.y+10, 2, 220, black, True)
-        #vertikal unten
-        can.imageblack.rect(self.x+186, self.y+250, 2, 220, black, True)
-        can.imageblack.rect(self.x+373, self.y+250, 2, 220, black, True)
         
-        #Datum oben
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+25, self.y+15, black)
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+212, self.y+15, black)
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+399, self.y+15, black)
-        #Datum unten
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+25, self.y+255, black)
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+212, self.y+255, black)
-        can.imageblack.text("Datum: tt.mm.jjjj", self.x+399, self.y+255, black)
+        weather_x_cords = [0, 187, 374, 0, 187, 374]
+        weather_y_cords = [0, 0, 0, 242, 242, 242]
+        weather_dates = ["Datum: 01.mm.jjjj", "Datum: 02.mm.jjjj", "Datum: 03.mm.jjjj", "Datum: 04.mm.jjjj", "Datum: 05.mm.jjjj", "Datum: 06.mm.jjjj",]
+        temp_high = [21, 22, 23, 22, 26, 27]
+        temp_low = [18, 16, 18, 19, 20, 18]
+        weather_status = ["Das ist ein Wetter Status 1", "Das ist ein Wetter Status 2", "Das ist ein Wetter Status 3", "Das ist ein Wetter Status 4", "Das ist ein Wetter Status 5", "Das ist ein Wetter Status 6"]
+        weather_icon = [1, 2, 3, 2, 3, 1]
+        k=0
+        for i in range(6):
+            can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
+            can.imageblack.text(weather_dates[k], self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+15, black)
+            can.imagered.text("Max Temperatur: "+str(temp_high[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+210, red)
+            can.imageblack.text("Min Temperatur: "+str(temp_low[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+225, black)
+            
+            y_row_counter = 0
+            row_count = 0
+            max_rows = 4
+            cols = 170 // 8 #Breite des Textfeldes
+            current_row = ''
+            last_space_index = -1  
+            text = weather_status[k]
+            for i in range(len(text)):
+                current_row += text[i]
+                if text[i] == ' ':
+                    last_space_index = i  
+                if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
+                    # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
+                    can.imageblack.text(current_row[:last_space_index], 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black)
+                    # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
+                    current_row = current_row[last_space_index + 1:]
+                    y_row_counter += 8  # Zeilenhöhe
+                    row_count += 1
+                    last_space_index = -1 
+                    if row_count >= max_rows:
+                        break
+            # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
+            if current_row:
+                can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
         
-        #Wetter Icons oben
-        can.imageblack.rect(self.x+43, self.y+30, 100, 100, black, True)
-        can.imageblack.rect(self.x+230, self.y+30, 100, 100, black, True)
-        can.imageblack.rect(self.x+417, self.y+30, 100, 100, black, True)
-        #Wetter Icons unten
-        can.imageblack.rect(self.x+43, self.y+270, 100, 100, black, True)
-        can.imageblack.rect(self.x+230, self.y+270, 100, 100, black, True)
-        can.imageblack.rect(self.x+417, self.y+270, 100, 100, black, True)
+        
+            if weather_icon[k]==1:
+                can.imageblack.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, black, False)
+                can.imagered.text("Icon 1 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, red)
+            elif weather_icon[k]==2:
+                can.imageblack.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, black, False)
+                can.imagered.text("Icon 2 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, red)
+            elif weather_icon[k]==3:
+                can.imagered.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, red, False)
+                can.imageblack.text("Icon 3 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, black)
+            k=k+1
     
 # class Calender_Tile(Tile):
 #     width = 200
