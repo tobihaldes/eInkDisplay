@@ -573,16 +573,7 @@ class Clock_Tile_s(Tile):
         can.imageblack.line(self.x+69+5, self.y+208-5, self.x+82, self.y+186, black)
         can.imageblack.line(self.x+33+5, self.y+171-5, self.x+53, self.y+158, black)
         can.imageblack.line(self.x+33+5, self.y+69+5, self.x+53, self.y+82, black)
-        can.imageblack.line(self.x+69+5, self.y+33+5, self.x+82, self.y+53, black)
-        
-        #mitte der Uhr
-        can.imageblack.pixel(self.x+120, self.y+120, black)
-        
-        
-        
-        
-    
-    
+        can.imageblack.line(self.x+69+5, self.y+33+5, self.x+82, self.y+53, black)   
     
 class Weather_Tile_s(Tile):
     width = 240
@@ -669,8 +660,7 @@ class Weather_Tile_l(Tile):
             # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
             if current_row:
                 can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
-        
-        
+            #Weathe Icon
             if weather_icon[k]==1:
                 can.imageblack.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, black, False)
                 can.imagered.text("Icon 1 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, red)
@@ -682,12 +672,47 @@ class Weather_Tile_l(Tile):
                 can.imageblack.text("Icon 3 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, black)
             k=k+1
     
-# class Calender_Tile(Tile):
-#     width = 200
-#     height = 200
-#     
-#     def draw_canvas(self, can):
-#         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-#         can.imageblack.rect(self.x+50, self.y+50, 50, 50, black, True)
-#         can.imagered.rect(self.x+0, self.y+0, 50, 50, red, True)
-#         can.imageblack.text("Calender Tile!", self.x+96, self.y+100, black)
+class ToDo_Tile(Tile):
+    width = 560
+    height = 480
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+        todo_x_cords = [5, 190, 375, 5, 190, 375, 5, 190, 375, 5, 190, 375]
+        todo_y_cords = [5, 5, 5, 120, 120, 120, 235, 235, 235, 350, 350, 350]
+        todo_data = [["Aufgabe: Hausaufgaben fuer die UNI erledigen", "Faellig am xx.xx.xx"], ["Aufgabe: Das Zimmer aufraeumen", "Faellig am xx.xx.xx"], ["Aufgabe: Smart Display programmieren und dann in Git hochladen, damit alle den Code haben.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"]]
+        k=0
+        for i in range(len(todo_data)):
+            can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 180, 110, black, False)
+            can.imageblack.line(self.x+todo_x_cords[k]+ 159, self.y+todo_y_cords[k], self.x+todo_x_cords[k]+179, self.y+todo_y_cords[k]+20, black)
+            can.imageblack.text("ToDo Nr. "+str(k+1), self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
+            can.imagered.text(todo_data[k][1], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
+            can.imageblack.line(self.x+todo_x_cords[k]+ 0, self.y+todo_y_cords[k]+95, self.x+todo_x_cords[k]+179, self.y+todo_y_cords[k]+95, black)
+            
+            y_row_counter = 0
+            row_count = 0
+            max_rows = 8
+            cols = 170 // 8 #Breite des Textfeldes
+            current_row = ''
+            last_space_index = -1
+            text = todo_data[k][0] 
+            for i in range(len(text)):
+                current_row += text[i]
+                if text[i] == ' ':
+                    last_space_index = i  
+                if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
+                    # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
+                    can.imageblack.text(current_row[:last_space_index], 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black)
+                    # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
+                    current_row = current_row[last_space_index + 1:]
+                    y_row_counter += 10  # Zeilenhöhe
+                    row_count += 1
+                    last_space_index = -1 
+                    if row_count >= max_rows:
+                        break
+            # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
+            if current_row:
+                can.imageblack.text(current_row, 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black) 
+            k=k+1
+        
+        
+        
