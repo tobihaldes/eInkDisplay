@@ -6,12 +6,12 @@ import gc
 
 def button_next(pin):
     print("next tile")
-    tile_gallery.next_tile()
+    gallery.next_tile()
     display.display()
 
 def button_prev(pin):
     print("previous tile")
-    tile_gallery.prev_tile()
+    gallery.prev_tile()
     display.display()
    
 if __name__=='__main__':
@@ -49,8 +49,12 @@ if __name__=='__main__':
     
 
     while True:
+        display.init()
         display.display()
-        display.delay_ms(300000)
+        display.delay_ms(1000)
+        display.sleep()
+        display.delay_ms(1000)
+        machine.lightsleep(60000)
     
     
     display.Clear()

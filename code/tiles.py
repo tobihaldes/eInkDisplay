@@ -610,8 +610,9 @@ class Weather_Tile_s(Tile):
                     break
         # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
         if current_row:
-            can.imageblack.text(current_row, self.x+12, self.y+161 + y_row_counter, black) 
-    
+            can.imageblack.text(current_row, self.x+12, self.y+161 + y_row_counter, black)
+        can.imagered.rect(self.x+50, self.y+50, 100, 100, red, True)
+        can.imagered.rect(self.x+55, self.y+55, 100, 100, 0x00, True)
     
 class Weather_Tile_l(Tile):
     width = 560
