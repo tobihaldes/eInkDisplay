@@ -49,15 +49,24 @@ class Template_Tile(Tile):
       
 class Clock_Tile_s(Tile):
     
-    date, time = get_date_and_time();
     width = 240
     height = 240
     
     def draw_canvas(self, can):
         i = 1
         #Parameter für Stunden und Minuten
-        timeHour = 22
-        minuteQuarter = 1
+        date, time = get_date_and_time();
+        timeHour, minute, second = time.split(':')
+        
+        # Minute Quarter anhand der Minute herausfinden
+        if minute <= 15:
+            minuteQuarter = 1
+        elif minute <= 30:
+            minuteQuarter = 2
+        elif minute <= 45:
+            minuteQuarter = 3
+        elif minute <= 60:
+            minuteQuarter = 4
 
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         
