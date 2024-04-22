@@ -36,6 +36,7 @@
 
 #########################################################################
 from machine import Pin, SPI
+import micropython
 import framebuf
 import utime
 import tiles
@@ -70,6 +71,7 @@ class EPD_7in5_B:
         gc.collect()
         self.buffer_black = bytearray(self.height * self.width // 8)
         gc.collect()
+        micropython.mem_info(1)
         self.buffer_red = bytearray(self.height * self.width // 8)
         gc.collect()
         self.imageblack = framebuf.FrameBuffer(self.buffer_black, self.width, self.height, framebuf.MONO_HLSB)
