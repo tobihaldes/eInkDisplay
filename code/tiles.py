@@ -1,4 +1,5 @@
 import framebuf
+from apis.datetime import get_date_and_time
 
 black = 0x00
 red = 0xff
@@ -47,6 +48,8 @@ class Template_Tile(Tile):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
       
 class Clock_Tile_s(Tile):
+    
+    date, time = get_date_and_time();
     width = 240
     height = 240
     
