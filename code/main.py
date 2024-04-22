@@ -39,6 +39,7 @@ if __name__=='__main__':
         ]
     
     # initiate Display Objekt
+    gc.collect()
     display = driver.EPD_7in5_B(layout)
     
     #display.Clear()

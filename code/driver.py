@@ -67,9 +67,11 @@ class EPD_7in5_B:
         self.spi.init(baudrate=4000_000)
         self.dc_pin = Pin(DC_PIN, Pin.OUT)
         
-
+        gc.collect()
         self.buffer_black = bytearray(self.height * self.width // 8)
+        gc.collect()
         self.buffer_red = bytearray(self.height * self.width // 8)
+        gc.collect()
         self.imageblack = framebuf.FrameBuffer(self.buffer_black, self.width, self.height, framebuf.MONO_HLSB)
         self.imagered = framebuf.FrameBuffer(self.buffer_red, self.width, self.height, framebuf.MONO_HLSB)
         self.init()

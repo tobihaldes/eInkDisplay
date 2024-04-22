@@ -56,6 +56,8 @@ class Clock_Tile_s(Tile):
         #Parameter für Stunden und Minuten
         date, time = get_date_and_time();
         timeHour, minute, second = time.split(':')
+        minute = int(minute)
+        timeHour = int(timeHour)
         
         # Minute Quarter anhand der Minute herausfinden
         if minute <= 15:
