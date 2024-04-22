@@ -3,7 +3,6 @@ from apis.datetime import get_date_and_time
 
 black = 0x00
 red = 0xff
-white = 0x00
 
 # Parent class that defines Basic function for all tiles
 class Tile():
@@ -18,11 +17,11 @@ class Tile():
         print("a")
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
-        
     
-    """def move(self, x, y):
-        self.y = y
-        self.x = x"""
+    
+    
+    
+    
     
 class tile_gallery(Tile):
     def __init__(self, tiles):
@@ -57,6 +56,8 @@ class Clock_Tile_s(Tile):
         #Parameter für Stunden und Minuten
         date, time = get_date_and_time();
         timeHour, minute, second = time.split(':')
+        minute = int(minute)
+        timeHour = int(timeHour)
         
         # Minute Quarter anhand der Minute herausfinden
         if minute <= 15:
