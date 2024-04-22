@@ -554,23 +554,17 @@ class Clock_Tile_s(Tile):
             
         #Viertelstunden Zeiger 
         if minuteQuarter == 1:
-            for x in range(0, 7):
-                can.imagered.ellipse(self.x+120, self.y+120, 100+i, 100+i, red, False, 1)
-                i = i+1
+            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 1)
         elif minuteQuarter ==2:
-            for x in range(0, 7):
-                can.imagered.ellipse(self.x+120, self.y+120, 100+i, 100+i, red, False, 9)
-                i = i+1
+            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 9)
         elif minuteQuarter ==3:
-            for x in range(0, 7):
-                can.imagered.ellipse(self.x+120, self.y+120, 100+i, 100+i, red, False, 13)
-                i = i+1
+            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 13)
         elif minuteQuarter ==4:
-            for x in range(0, 7):
-                can.imagered.ellipse(self.x+120, self.y+120, 100+i, 100+i, red, False, 15)
-                i = i+1
-        can.imageblack.ellipse(self.x+120, self.y+120, 108, 108, black)
+            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 15)
+                
+        can.imageblack.ellipse(self.x+120, self.y+120, 108, 108, black, False)
         can.imageblack.ellipse(self.x+120, self.y+120, 100, 100, black)
+        can.imagered.ellipse(self.x+120, self.y+120, 100, 100, 0x00, True)
         #Ziffernblatt oben und unten
         can.imageblack.rect(self.x+118, self.y+25, 4, 20, black, True)
         can.imageblack.rect(self.x+118, self.y+195, 4, 20, black, True)

@@ -24,10 +24,8 @@ if __name__=='__main__':
     
     # Layout
     gallery = tiles.tile_gallery([
-#             tiles.Template_Tile(0,0),
-#             tiles.Calender_Tile(0,0),
-             tiles.Weather_Tile_l(0,0),
-             tiles.Weather_Tile_s(0,0),
+            tiles.ToDo_Tile(0,0),
+            tiles.Weather_Tile_l(0,0),
             ])
     
     layout = [
