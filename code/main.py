@@ -5,22 +5,21 @@ import gc
 import micropython
 from picozero import Button
 
+update_flag = 0
+
 def button_next(pin):
     print("next tile")
     gallery.next_tile()
-    display.init()
-    display.display()
+    update_flag = 0
 
 def button_prev(pin):
     print("previous tile")
     gallery.prev_tile()
-    display.init()
-    display.display()
+    update_flag = 0
     
 if __name__=='__main__':
     gc.enable()
     gc.collect()
-    
     
     # Initialisierung Taster
     """
@@ -31,9 +30,9 @@ if __name__=='__main__':
     """
     
     btn_next = Button(3)
-    btn_next.whenpressed = button_next
+    btn_next.when_pressed = button_next
     btn_prev = Button(2)
-    btn_prev.whenpressed = button_prev
+    btn_prev.when_pressed = button_prev
     
     # Layout
     gallery = tiles.tile_gallery([
@@ -54,12 +53,16 @@ if __name__=='__main__':
     micropython.mem_info(1)
     
     while True:
+        update_flag = 60
         display.init()
         display.display()
         display.delay_ms(1000)
         display.sleep()
         display.delay_ms(1000)
-        machine.lightsleep(60000)
+        while 0 > update_flag:
+            update_flag -= 1
+            machine.lightsleep(1000)
+            
     
     
     display.Clear()
