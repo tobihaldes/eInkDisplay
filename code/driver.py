@@ -192,9 +192,9 @@ class EPD_7in5_B:
         self.send_data(0x00)
         self.send_data(0x00)
         
-        ssid = 'Notebook von Tobi'
-        password = '1357924680'
-        result = wifi.connect_to_wifi(ssid, password)
+        ssid = 'HeimwehLan'
+        password = 'asdf'
+        result = connect_to_wifi(ssid, password)
         print("Verbindungsstatus:", result)
         
         return 0;
@@ -298,3 +298,4 @@ class EPD_7in5_B:
     #####################
      
     
+

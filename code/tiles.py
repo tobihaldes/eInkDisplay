@@ -1,5 +1,5 @@
 import framebuf
-#from apis.datetime import get_date_and_time
+from apis.datetime import get_date_and_time
 
 black = 0x00
 red = 0xff
@@ -69,12 +69,11 @@ class Clock_Tile_s(Tile):
     def draw_canvas(self, can):
         i = 1
         #Parameter für Stunden und Minuten
-        #date, time = get_date_and_time();
-        #timeHour, minute, second = time.split(':')
-        minute= 16
-        timeHour=14
+        date, time = get_date_and_time();
+        timeHour, minute, second = time.split(':')
+        
         minute = int(minute)
-        timeHour = int(timeHour)
+        #timeHour = int(timeHour)
         
         # Minute Quarter anhand der Minute herausfinden
         if minute <= 15:
@@ -89,7 +88,7 @@ class Clock_Tile_s(Tile):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         
         #Stundenzahlen
-        can.imageblack.text("12", self.x+120, self.y+120, black)
+        can.imageblack.text(timeHour, self.x+120, self.y+120, black)
             
         #Viertelstunden Zeiger 
         if minuteQuarter == 1:

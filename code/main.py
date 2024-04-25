@@ -2,6 +2,7 @@ import driver
 import tiles
 from machine import Pin
 import gc
+import micropython
 
 def button_next(pin):
     print("next tile")
@@ -43,7 +44,8 @@ if __name__=='__main__':
     
     # initiate Display Objekt
     display = driver.EPD_7in5_B(layout)
-
+    micropython.mem_info(1)
+    
     while True:
         display.init()
         display.display()
