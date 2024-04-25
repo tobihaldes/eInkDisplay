@@ -7,11 +7,13 @@ import micropython
 def button_next(pin):
     print("next tile")
     gallery.next_tile()
+    display.init()
     display.display()
 
 def button_prev(pin):
     print("previous tile")
     gallery.prev_tile()
+    display.init()
     display.display()
     
 if __name__=='__main__':
@@ -27,20 +29,17 @@ if __name__=='__main__':
     
     # Layout
     gallery = tiles.tile_gallery([
-            tiles.ToDo_Tile(0,0),
             tiles.Weather_Tile_l(0,0),
+            tiles.ToDo_Tile(0,0),
+            tiles.Calendar_Tile(0,0),
+            tiles.News_Tile(0,0),
             ])
     
     layout = [
-        #tiles.Weather_Tile_l(0, 0),
         tiles.Clock_Tile_s(560, 0),
         tiles.Weather_Tile_s(560, 240),
-        #tiles.Calender_Tile(200, 0),
-        #tiles.Template_Tile(400, 0),
-        #tiles.Template_Tile(0,200),
         gallery,
         ]
-    
     
     # initiate Display Objekt
     display = driver.EPD_7in5_B(layout)
