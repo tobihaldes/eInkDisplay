@@ -3,6 +3,7 @@ import tiles
 from machine import Pin
 import gc
 import micropython
+from picozero import Button
 
 def button_next(pin):
     print("next tile")
@@ -22,10 +23,17 @@ if __name__=='__main__':
     
     
     # Initialisierung Taster
+    """
     btn_next = Pin(3, Pin.IN, Pin.PULL_UP)  #KEY1 GP3 pin 5
     btn_next.irq(trigger=Pin.IRQ_RISING, handler=button_next)
     btn_prev = Pin(2, Pin.IN, Pin.PULL_UP)    #KEY0 GP2 pin 4
     btn_prev.irq(trigger=Pin.IRQ_RISING, handler=button_prev)
+    """
+    
+    btn_next = Button(3)
+    btn_next.whenpressed = button_next
+    btn_prev = Button(2)
+    btn_prev.whenpressed = button_prev
     
     # Layout
     gallery = tiles.tile_gallery([
