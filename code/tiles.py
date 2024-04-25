@@ -1,5 +1,5 @@
 import framebuf
-from apis.datetime import get_date_and_time
+#from apis.datetime import get_date_and_time
 
 black = 0x00
 red = 0xff

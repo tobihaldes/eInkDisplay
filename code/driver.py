@@ -35,13 +35,20 @@
 ###################
 
 #########################################################################
+
+#Allocate RAM for large bytearays first to avoid heap fragmentation
+buffer_black = bytearray(48000)
+buffer_red = bytearray(48000)
+
+import tiles
+import gc
+gc.collect()
+from apis.wifi import connect_to_wifi
+gc.collect()
 from machine import Pin, SPI
 import micropython
 import framebuf
 import utime
-import tiles
-import gc
-from apis.wifi import connect_to_wifi
 
 
 # Display resolution
@@ -55,8 +62,12 @@ BUSY_PIN        = 13
 
 class EPD_7in5_B:
     def __init__(self, tiles):
+        
         ### Custom line ###
+        global buffer_black, buffer_red
         self.tiles = tiles
+        self.buffer_black = buffer_black
+        self.buffer_red = buffer_red
         ###################
         
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
@@ -70,14 +81,16 @@ class EPD_7in5_B:
         self.spi.init(baudrate=4000_000)
         self.dc_pin = Pin(DC_PIN, Pin.OUT)
         
+        """
         gc.collect()
         self.buffer_black = bytearray(self.height * self.width // 8)
         gc.collect()
         micropython.mem_info(1)
         self.buffer_red = bytearray(self.height * self.width // 8)
         gc.collect()
-        self.imageblack = framebuf.FrameBuffer(self.buffer_black, self.width, self.height, framebuf.MONO_HLSB)
-        self.imagered = framebuf.FrameBuffer(self.buffer_red, self.width, self.height, framebuf.MONO_HLSB)
+        """
+        self.imageblack = framebuf.FrameBuffer(buffer_black, self.width, self.height, framebuf.MONO_HLSB)
+        self.imagered = framebuf.FrameBuffer(buffer_red, self.width, self.height, framebuf.MONO_HLSB)
         self.init()
 
     def digital_write(self, pin, value):
@@ -241,7 +254,7 @@ class EPD_7in5_B:
         self.TurnOnDisplay()
         
     def display(self):
-        
+
         self.refresh_framebuffer()
         
         high = self.height
@@ -276,12 +289,12 @@ class EPD_7in5_B:
     def refresh_framebuffer(self):
         self.imageblack.fill(0xff)
         self.imagered.fill(0x00)
+        
         for tile in self.tiles:
             if not isinstance(tile, tiles.Tile):
                 raise TypeError("Invalid tile type passed.")
             tile.draw_canvas(self)
             
-        
     #####################
      
     

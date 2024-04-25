@@ -2,7 +2,6 @@ import driver
 import tiles
 from machine import Pin
 import gc
-#from picozero import Button
 
 def button_next(pin):
     print("next tile")
@@ -13,9 +12,12 @@ def button_prev(pin):
     print("previous tile")
     gallery.prev_tile()
     display.display()
-   
+    
 if __name__=='__main__':
     gc.enable()
+    gc.collect()
+    
+    
     # Initialisierung Taster
     btn_next = Pin(3, Pin.IN, Pin.PULL_UP)  #KEY1 GP3 pin 5
     btn_next.irq(trigger=Pin.IRQ_RISING, handler=button_next)
@@ -38,14 +40,9 @@ if __name__=='__main__':
         gallery,
         ]
     
+    
     # initiate Display Objekt
-    gc.collect()
     display = driver.EPD_7in5_B(layout)
-    
-    #display.Clear()
-    display.imagered.fill(0x00)
-    display.imageblack.fill(0xff)
-    
 
     while True:
         display.init()
