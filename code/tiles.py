@@ -1,5 +1,6 @@
 import framebuf
 from apis.datetime import get_date_and_time
+from apis.weather import get_weather_forecast
 
 black = 0x00
 red = 0xff
@@ -124,10 +125,14 @@ class Weather_Tile_s(Tile):
     height = 240
     
     def draw_canvas(self, can):
+        
+        #Get weather data
+        api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
+        weather_forecast = get_weather_forecast(api_url)
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.text("Datum: Heute", self.x+70, self.y+16, black)
-        can.imagered.text("Max Temperatur: 22", self.x+45, self.y+211, red)
-        can.imageblack.text("Min Temperatur: 12", self.x+45, self.y+226, black)
+        can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+70, self.y+16, black)
+        can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
+        can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
     
         y_row_counter = 0

@@ -50,7 +50,7 @@ if __name__=='__main__':
     
     # initiate Display Objekt
     display = driver.EPD_7in5_B(layout)
-    micropython.mem_info(1)
+    #micropython.mem_info(1)
     
     while True:
         update_flag = 60
