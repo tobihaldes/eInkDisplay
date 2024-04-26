@@ -59,7 +59,7 @@ if __name__=='__main__':
         display.delay_ms(1000)
         display.sleep()
         display.delay_ms(1000)
-        while 0 > update_flag:
+        while 0 < update_flag:
             update_flag -= 1
             machine.lightsleep(1000)
             
