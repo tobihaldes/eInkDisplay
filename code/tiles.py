@@ -141,7 +141,7 @@ class Weather_Tile_s(Tile):
         cols = 210 // 8 #Breite des Textfeldes
         current_row = ''
         last_space_index = -1  
-        text = "Das ist eine ganz lange Beschreibung fuer das heutige Wetter."+" "
+        text = weather_forecast[0]['weather']
         
         for i in range(len(text)):
             current_row += text[i]
@@ -178,19 +178,23 @@ class Weather_Tile_l(Tile):
         #Gitternetzlinien Horizontal
         can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
         
+        #Get weather data
+        api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
+        weather_forecast = get_weather_forecast(api_url)
+        
         weather_x_cords = [0, 187, 374, 0, 187, 374]
         weather_y_cords = [0, 0, 0, 242, 242, 242]
-        weather_dates = ["Datum: 01.mm.jjjj", "Datum: 02.mm.jjjj", "Datum: 03.mm.jjjj", "Datum: 04.mm.jjjj", "Datum: 05.mm.jjjj", "Datum: 06.mm.jjjj",]
-        temp_high = [21, 22, 23, 22, 26, 27]
-        temp_low = [18, 16, 18, 19, 20, 18]
-        weather_status = ["Das ist ein Wetter Status 1", "Das ist ein Wetter Status 2", "Das ist ein Wetter Status 3", "Das ist ein Wetter Status 4", "Das ist ein Wetter Status 5", "Das ist ein Wetter Status 6"]
+        weather_dates = ["Datum: " + weather_forecast[1]['date'], "Datum: " + weather_forecast[2]['date'], "Datum: " + weather_forecast[3]['date'], "Datum: " + weather_forecast[4]['date'], "Datum: " + weather_forecast[5]['date'], "Datum: " + weather_forecast[6]['date']]
+        temp_high = [weather_forecast[1]['max_temp'], weather_forecast[2]['max_temp'], weather_forecast[3]['max_temp'], weather_forecast[4]['max_temp'], weather_forecast[5]['max_temp'], weather_forecast[6]['max_temp']]
+        temp_low = [weather_forecast[1]['min_temp'], weather_forecast[2]['min_temp'], weather_forecast[3]['min_temp'], weather_forecast[4]['min_temp'], weather_forecast[5]['min_temp'], weather_forecast[6]['min_temp']]
+        weather_status = [weather_forecast[1]['weather'], weather_forecast[2]['weather'], weather_forecast[3]['weather'], weather_forecast[4]['weather'], weather_forecast[5]['weather'], weather_forecast[6]['weather']]
         weather_icon = [1, 2, 3, 2, 3, 1]
         k=0
         for i in range(6):
             can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
             can.imageblack.text(weather_dates[k], self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+15, black)
-            can.imagered.text("Max Temperatur: "+str(temp_high[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+200, red)
-            can.imageblack.text("Min Temperatur: "+str(temp_low[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+215, black)
+            can.imagered.text("Max Temp.: "+str(temp_high[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+200, red)
+            can.imageblack.text("Min Temp.: "+str(temp_low[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+215, black)
             
             y_row_counter = 0
             row_count = 0

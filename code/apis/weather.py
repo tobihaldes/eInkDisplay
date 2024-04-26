@@ -49,6 +49,7 @@ def get_weather_forecast(api_url):
                 forecast.append({
                     "date": date,
                     "weather": weather_description,
+                    "weathercode": weather_code,
                     "max_temp": f"{max_temp}°C",
                     "min_temp": f"{min_temp}°C"
                 })
