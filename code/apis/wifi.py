@@ -12,7 +12,7 @@ def connect_to_wifi(ssid, password):
     timeout = 50  # Timeout nach 50 Sekunden
     while not wlan.isconnected() and wlan.status() >= 0 and timeout > 0:
         print("Waiting to connect...")
-        time.sleep(10)
+        time.sleep(5)
         timeout -= 10
 
     # Rückgabe des Verbindungsstatus

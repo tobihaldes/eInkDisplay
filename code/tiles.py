@@ -1,6 +1,7 @@
 import framebuf
 from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
+from apis.toDo import toDoList
 
 black = 0x00
 red = 0xff
@@ -134,7 +135,8 @@ class Weather_Tile_s(Tile):
         can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
-    
+        #weathericon code: [weather_forecast[0]['weathercode']
+        
         y_row_counter = 0
         row_count = 0
         max_rows = 4
@@ -188,7 +190,8 @@ class Weather_Tile_l(Tile):
         temp_high = [weather_forecast[1]['max_temp'], weather_forecast[2]['max_temp'], weather_forecast[3]['max_temp'], weather_forecast[4]['max_temp'], weather_forecast[5]['max_temp'], weather_forecast[6]['max_temp']]
         temp_low = [weather_forecast[1]['min_temp'], weather_forecast[2]['min_temp'], weather_forecast[3]['min_temp'], weather_forecast[4]['min_temp'], weather_forecast[5]['min_temp'], weather_forecast[6]['min_temp']]
         weather_status = [weather_forecast[1]['weather'], weather_forecast[2]['weather'], weather_forecast[3]['weather'], weather_forecast[4]['weather'], weather_forecast[5]['weather'], weather_forecast[6]['weather']]
-        weather_icon = [1, 2, 3, 2, 3, 1]
+        #weather_icon = [weather_forecast[1]['weathercode'], [weather_forecast[2]['weathercode'], [weather_forecast[3]['weathercode'], [weather_forecast[4]['weathercode'], [weather_forecast[5]['weathercode'], [weather_forecast[6]['weathercode']]
+        weather_icon = [1, 2, 3, 1, 2, 1]
         k=0
         for i in range(6):
             can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
@@ -236,7 +239,14 @@ class ToDo_Tile(Tile):
     width = 560
     height = 480
     def draw_canvas(self, can):
+        
+        #get Tasks:
+        api_token = 'a7f3b805fdf80789ea5953f6d4eb7a799309a9b1'
+        project_id = '2332430307'
+        tasks = toDoList(api_token, project_id)        
+        print(tasks)
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+        
         #Footer
         can.imageblack.rect(self.x+0, self.y+470, 560, 10, black, True)
         can.imagered.text("< Weather",self.x+1, self.y+471, red)
@@ -245,7 +255,7 @@ class ToDo_Tile(Tile):
         
         todo_x_cords = [5, 190, 375, 5, 190, 375, 5, 190, 375, 5, 190, 375]
         todo_y_cords = [5, 5, 5, 120, 120, 120, 235, 235, 235, 350, 350, 350]
-        todo_data = [["Aufgabe: Hausaufgaben fuer die UNI erledigen", "Faellig am xx.xx.xx"], ["Aufgabe: Das Zimmer aufraeumen", "Faellig am xx.xx.xx"], ["Aufgabe: Smart Display programmieren und dann in Git hochladen, damit alle den Code haben.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"], ["Aufgabe: Weitere Sachen die gemacht werden muessen.", "Faellig am xx.xx.xx"]]
+        todo_data = [["Aufgabe: " + tasks[0][0], "Faellig am " + tasks[0][1]], ["Aufgabe: " + tasks[1][0], "Faellig am " + tasks[1][1]], ["Aufgabe: " + tasks[2][0], "Faellig am " + tasks[2][1]], ["Aufgabe: " + tasks[3][0], "Faellig am " + tasks[3][1]], ["Aufgabe: " + tasks[4][0], "Faellig am " + tasks[4][1]], ["Aufgabe: " + tasks[5][0], "Faellig am " + tasks[5][1]], ["Aufgabe: " + tasks[6][0], "Faellig am " + tasks[6][1]], ["Aufgabe: " + tasks[7][0], "Faellig am " + tasks[7][1]], ["Aufgabe: " + tasks[8][0], "Faellig am " + tasks[8][1]], ["Aufgabe: " + tasks[9][0], "Faellig am " + tasks[9][1]], ["Aufgabe: " + tasks[10][0], "Faellig am " + tasks[10][1]]]
         k=0
         for i in range(len(todo_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 180, 110, black, False)
