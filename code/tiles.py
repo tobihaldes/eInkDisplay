@@ -2,6 +2,7 @@ import framebuf
 from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
 from apis.toDo import toDoList
+from apis.calendar import get_next_events
 
 black = 0x00
 red = 0xff
@@ -305,10 +306,17 @@ class Calendar_Tile(Tile):
         
         todo_x_cords = [5, 5, 5, 5, 285, 285, 285, 285]
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
-        calendar_data = [["Titel", 'Beschreibung des kalendereintrages', "Datum"], ["Titel", "Beschreibung des kalendereintrages", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"]]
+        
+        #get Calendar Data
+        url = 'http://p139-caldav.icloud.com/published/2/MTE1NzQwNjE0NzQxMTU3NDmLjpu4-S1Y9s3ZY6FOrrHnIwf0-kAOhn-6sr24tcTFaqodbcvwQ-1iUIyMWm_Q-QI6qieG29wXJSUU0hdN6JI'
+        events = get_next_events(url)
+        
+        if len(events) >= 5:
+            calendar_data = [["Eintrag ", events[0]['summary'], events[0]['start_time']], ["Eintrag ", events[1]['summary'], events[1]['start_time']], ["Eintrag ", events[2]['summary'], events[2]['start_time']], ["Eintrag ", events[3]['summary'], events[3]['start_time']], ["Eintrag ", events[4]['summary'], events[4]['start_time']]]
+        else:
+            # Handhabung, falls nicht genügend Events vorhanden sind
+            calendar_data = [["Kein Event", "Keine Daten", "N/A"]] * 5  # Erstellt eine Liste mit Platzhaltern
         k=0
-        
-        
         for i in range(len(calendar_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 270, 110, black, False)
             
