@@ -3,6 +3,8 @@ from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
 from apis.toDo import toDoList
 from apis.calendar import get_next_events
+from apis.News import get_latest_news
+from apis.stocks import stock_price
 
 black = 0x00
 red = 0xff
@@ -364,6 +366,21 @@ class News_Tile(Tile):
         
         todo_x_cords = [5, 5, 5, 5, 285, 285, 285, 285]
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
+        
+        #Abfrage der News
+        url = 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
+        news_titles = get_latest_news(url)
+        
+        #Aufrufen der News
+        #news_titles[0][0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
+        #Da aber News-Tile noch nicht fertig ist, noch auskommentiert.
+        
+        #Abfrage für Aktienkurs, bspw. für Apple:
+        symbol = 'AAPL' #Microsoft: MSFT, Amazon: AMZN,...
+        api_key = '7I5ZTASNKQWHN3PT'
+        price = stock_price(symbol, api_key)
+        #muss nur noch angezeigt werden, nach absprache mit Design Team.
+        
         calendar_data = [["Titel", 'Beschreibung des kalendereintrages.', "Datum"], ["Titel", "Beschreibung des kalendereintrages", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"]]
         k=0
         
