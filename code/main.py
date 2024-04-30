@@ -7,15 +7,17 @@ from picozero import Button
 
 update_flag = 0
 
-def button_next(pin):
-    print("next tile")
+def button_next():
     gallery.next_tile()
+    global update_flag
     update_flag = 0
+    print("next tile")
 
-def button_prev(pin):
-    print("previous tile")
+def button_prev():
     gallery.prev_tile()
+    global update_flag
     update_flag = 0
+    print("previous tile")
     
 if __name__=='__main__':
     gc.enable()
@@ -23,15 +25,14 @@ if __name__=='__main__':
     
     # Initialisierung Taster
     """
-    btn_next = Pin(3, Pin.IN, Pin.PULL_UP)  #KEY1 GP3 pin 5
+    btn_next = Pin(3, Pin.IN, Pin.PULL_UP)  
     btn_next.irq(trigger=Pin.IRQ_RISING, handler=button_next)
-    btn_prev = Pin(2, Pin.IN, Pin.PULL_UP)    #KEY0 GP2 pin 4
+    btn_prev = Pin(2, Pin.IN, Pin.PULL_UP)    
     btn_prev.irq(trigger=Pin.IRQ_RISING, handler=button_prev)
     """
-    
-    btn_next = Button(3)
+    btn_next = Button(3)                  #KEY1 GP3 pin 5
     btn_next.when_pressed = button_next
-    btn_prev = Button(2)
+    btn_prev = Button(2)                  #KEY0 GP2 pin 4
     btn_prev.when_pressed = button_prev
     
     # Layout
@@ -59,12 +60,9 @@ if __name__=='__main__':
         display.delay_ms(1000)
         display.sleep()
         display.delay_ms(1000)
-        while 0 < update_flag:
+        #sleep for 1s, check if button was pressed
+        while update_flag > 0:
             update_flag -= 1
-            machine.lightsleep(1000)
-            
+            #machine.lightsleep(1000)  #use for Powersaving in Production
+            time.sleep(1) 			  #use while debuging/ Development 
     
-    
-    display.Clear()
-    display.delay_ms(2000)
-    display.sleep()
