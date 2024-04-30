@@ -22,35 +22,7 @@ class Tile():
         print("a")
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
-    
-    def textfield(input_text, x_cord, y_cord, textfield_width, max_rows, row_size):
-        y_row_counter = 0
-        row_count = 0
-        cols = textfield_width // 8 #Breite des Textfeldes
-        current_row = ''
-        last_space_index = -1
-        text = input_text+" " 
-        for i in range(len(text)):
-            current_row += text[i]
-            if text[i] == ' ':
-                last_space_index = i  
-            if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
-                # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
-                can.imageblack.text(current_row[:last_space_index], x_cord, y_cord + y_row_counter, black)
-                # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
-                current_row = current_row[last_space_index + 1:]
-                y_row_counter += row_size  # Zeilenhöhe
-                row_count += 1
-                last_space_index = -1 
-                if row_count >= max_rows:
-                    break
-        # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
-        if current_row:
-            can.imageblack.text(current_row, x_cord, y_cord + y_row_counter, black) 
-    
-    
-    
-    
+
 class tile_gallery(Tile):
     def __init__(self, tiles):
         self.tiles= tiles
@@ -134,19 +106,19 @@ class Weather_Tile_s(Tile):
         api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
         weather_forecast = get_weather_forecast(api_url)
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+70, self.y+16, black)
+        can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
         #weathericon code: [weather_forecast[0]['weathercode']
-        
+      
         y_row_counter = 0
         row_count = 0
         max_rows = 4
         cols = 210 // 8 #Breite des Textfeldes
         current_row = ''
         last_space_index = -1  
-        text = weather_forecast[0]['weather']
+        text = weather_forecast[0]['weather']+" "
         
         for i in range(len(text)):
             current_row += text[i]
@@ -237,6 +209,8 @@ class Weather_Tile_l(Tile):
                 can.imagered.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, red, False)
                 can.imageblack.text("Icon 3 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, black)
             k=k+1
+            if k>7:
+                break
     
 class ToDo_Tile(Tile):
     width = 560
@@ -292,7 +266,8 @@ class ToDo_Tile(Tile):
             if current_row:
                 can.imageblack.text(current_row, 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black) 
             k=k+1
-        
+            if k>13:
+                break
         
 class Calendar_Tile(Tile):
     width = 560
@@ -351,6 +326,8 @@ class Calendar_Tile(Tile):
             if current_row:
                 can.imageblack.text(current_row, 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black) 
             k=k+1
+            if k>7:
+                break
         
 class News_Tile(Tile):
     width = 560
@@ -369,7 +346,7 @@ class News_Tile(Tile):
         
         #Abfrage der News
         url = 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
-        news_titles = get_latest_news(url)
+        #news_titles = get_latest_news(url)
         
         #Aufrufen der News
         #news_titles[0][0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
@@ -380,43 +357,48 @@ class News_Tile(Tile):
         api_key = '7I5ZTASNKQWHN3PT'
         price = stock_price(symbol, api_key)
         #muss nur noch angezeigt werden, nach absprache mit Design Team.
-        
-        calendar_data = [["Titel", 'Beschreibung des kalendereintrages.', "Datum"], ["Titel", "Beschreibung des kalendereintrages", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"], ["Titel", "Beschreibung", "Datum"]]
+        print(price)
+        news_data =[["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"]]
         k=0
         
+        can.imagered.rect(self.x+todo_x_cords[7], self.y+todo_y_cords[7], 270, 110, red, False)   
+        can.imageblack.text("Aktien: ", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 5, black)
+        can.imageblack.text("price", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 20, black)
+        can.imagered.text("Aktualisiert: dd.mm.yy", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 100, red)
+        can.imageblack.line(self.x+todo_x_cords[7]+ 0, self.y+todo_y_cords[7]+95, self.x+todo_x_cords[7]+269, self.y+todo_y_cords[7]+95, black)
         
-        for i in range(len(calendar_data)):
+        for i in range(len(news_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 270, 110, black, False)
             
-            can.imageblack.text(calendar_data[k][0]+str(k+1), self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
-            can.imagered.text(calendar_data[k][2], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
+            can.imageblack.text("Headline: "+str(k+1), self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
+            can.imagered.text(news_data[k][1], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
             can.imageblack.line(self.x+todo_x_cords[k]+ 0, self.y+todo_y_cords[k]+95, self.x+todo_x_cords[k]+269, self.y+todo_y_cords[k]+95, black)
             
-            super().textfield(calendar_data[k][1], 5+todo_x_cords[k], 20+todo_y_cords[k], 260, 8, 10)
- 
-#             y_row_counter = 0
-#             row_count = 0
-#             max_rows = 8
-#             cols = 260 // 8 #Breite des Textfeldes
-#             current_row = ''
-#             last_space_index = -1
-#             text = calendar_data[k][1]+" " 
-#             for i in range(len(text)):
-#                 current_row += text[i]
-#                 if text[i] == ' ':
-#                     last_space_index = i  
-#                 if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
-#                     # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
-#                     can.imageblack.text(current_row[:last_space_index], 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black)
-#                     # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
-#                     current_row = current_row[last_space_index + 1:]
-#                     y_row_counter += 10  # Zeilenhöhe
-#                     row_count += 1
-#                     last_space_index = -1 
-#                     if row_count >= max_rows:
-#                         break
-#             # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
-#             if current_row:
-#                 can.imageblack.text(current_row, 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black) 
+            y_row_counter = 0
+            row_count = 0
+            max_rows = 8
+            cols = 260 // 8 #Breite des Textfeldes
+            current_row = ''
+            last_space_index = -1
+            text = news_data[k][0]+" " 
+            for i in range(len(text)):
+                current_row += text[i]
+                if text[i] == ' ':
+                    last_space_index = i  
+                if len(current_row) == cols or (i == len(text) - 1):  # Wenn die maximale Spaltenbreite erreicht ist.
+                    # Zeichne die aktuelle Zeile bis zum letzten Leerzeichen
+                    can.imageblack.text(current_row[:last_space_index], 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black)
+                    # Entferne den Teil, der bereits gezeichnet wurde, aus dem aktuellen Text
+                    current_row = current_row[last_space_index + 1:]
+                    y_row_counter += 10  # Zeilenhöhe
+                    row_count += 1
+                    last_space_index = -1 
+                    if row_count >= max_rows:
+                        break
+            # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
+            if current_row:
+                can.imageblack.text(current_row, 5 + todo_x_cords[k], 20 + todo_y_cords[k] + y_row_counter, black)
             k=k+1
+            if k>6:
+                break
         
