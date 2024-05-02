@@ -31,6 +31,7 @@ for event in events:
 #Nachrichten (URL muss API Key beinhalten)
 url = 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
 news_titles = News.get_latest_news(url)
+print(news_titles)
 for title in news_titles:
     print(title)
 
@@ -55,7 +56,8 @@ else:
 # Aktienkurs für Apple
 symbol = 'AAPL' #Microsoft: MSFT, Amazon: AMZN,...
 api_key = '7I5ZTASNKQWHN3PT'
-stocks.stock_price(symbol, api_key)
+price = stocks.stock_price(symbol, api_key)
+print(price)
 
 
 print(gc.mem_free())

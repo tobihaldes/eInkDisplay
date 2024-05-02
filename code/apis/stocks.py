@@ -8,11 +8,12 @@ def stock_price(symbol, api_key):
             data = response.json()
             stock_info = data['Global Quote']
             price = stock_info['05. price']
-            print(f"Aktueller Kurs von {symbol}: {price}")
+            result= "Aktueller Kurs von "+ symbol + ": " + price
         else:
-            print("Fehler bei der Anfrage: Status-Code", response.status_code)
+            result= "Fehler bei der Anfrage: " + response.status_code
     except Exception as error:
-        print("Ein Fehler ist aufgetreten:", error)
+        result = "Ein Fehler ist aufgetreten: "+ error
     finally:
         if 'response' in locals():
             response.close()
+        return result

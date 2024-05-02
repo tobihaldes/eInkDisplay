@@ -9,7 +9,7 @@ def get_latest_news(url):
             feed = data.get('feed', [])  # Holt das 'feed' Array aus der Antwort
 
             # Extrahiert die Titel der ersten fünf Nachrichtenartikel
-            titles = [article.get('title', 'Kein Titel verfügbar') for article in feed[:5]]
+            titles = [article.get('title', 'Kein Titel verfügbar') for article in feed[:7]]
             return titles
         else:
             print('Fehler bei der Anfrage:', response.status_code)

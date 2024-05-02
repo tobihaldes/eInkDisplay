@@ -349,7 +349,7 @@ class News_Tile(Tile):
         #news_titles = get_latest_news(url)
         
         #Aufrufen der News
-        #news_titles[0][0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
+        #news_titles[0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
         #Da aber News-Tile noch nicht fertig ist, noch auskommentiert.
         
         #Abfrage für Aktienkurs, bspw. für Apple:
@@ -358,7 +358,7 @@ class News_Tile(Tile):
         price = stock_price(symbol, api_key)
         #muss nur noch angezeigt werden, nach absprache mit Design Team.
         print(price)
-        news_data =[["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"], ["Titel", "Datum"]]
+        news_data =[news_titles[0], news_titles[1], news_titles[2], news_titles[3], news_titles[4], news_titles[5]]
         k=0
         
         can.imagered.rect(self.x+todo_x_cords[7], self.y+todo_y_cords[7], 270, 110, red, False)   
