@@ -1,4 +1,4 @@
-# 1. main components
+# 1. Main Components
 ## 1.1 E-Ink Display
 - Model: WaveShare 7.5inch E-Paper E-Ink Display Module (B) for Raspberry Pi Pico
 ### Technical specifications:
@@ -22,7 +22,7 @@
 - Connectors: Micro-USB, I/O pins, GPIO, PWM, SPI, I2C, UART
 - Additional functions: ADC 12-bit, RTC/Timer, Serial Wire Debug (SWD)
 - Operating voltage: 5V/DC
-# 2. additional components
+# 2. Additional Components
 ## 2.1 Power supply
 - Battery holder: For 2x AA (Mignon) batteries, switchable and water-repellent
 - Batteries: TecXus Alkaline Mignon AA
@@ -33,7 +33,7 @@
 ## 2.4 Resistors
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
-# 3. housing: 
+# 3. Housing: 
 Customised frame
 
 
