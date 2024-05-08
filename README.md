@@ -20,7 +20,7 @@ A step by step series of examples that tell you how to get a development env run
 Add additional notes about how to deploy this on a live system
 
 ### Contributing: 
-Contribute.md?
+Learn more about contributing to this Project in the CONTRIBUTE.md file
 
 ### Authors: 
 Tobias Haldenwanger, Leon Karais, Jorim Bonk, Paul Schlestein, Lionel Mössinger
