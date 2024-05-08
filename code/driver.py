@@ -44,6 +44,7 @@ import tiles
 import gc
 gc.collect()
 from apis.wifi import connect_to_wifi
+import config
 gc.collect()
 from machine import Pin, SPI
 import micropython
@@ -192,9 +193,7 @@ class EPD_7in5_B:
         self.send_data(0x00)
         self.send_data(0x00)
         
-        ssid = 'Notebook von Tobi'
-        password = '1357924680'
-        result = connect_to_wifi(ssid, password)
+        result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
         print("Verbindungsstatus:", result)
         
         return 0;
