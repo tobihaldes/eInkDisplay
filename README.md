@@ -20,10 +20,10 @@ A step by step series of examples that tell you how to get a development env run
 Add additional notes about how to deploy this on a live system
 
 ### Contributing: 
-Learn more about contributing to this Project in the CONTRIBUTE.md file
+Learn more about contributing to this Project in the [CONTRIBUTING.md](CONTRIBUTING.md) file
 
 ### Authors: 
 Tobias Haldenwanger, Leon Karais, Jorim Bonk, Paul Schlestein, Lionel Mössinger
 
 ### Licence: 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
