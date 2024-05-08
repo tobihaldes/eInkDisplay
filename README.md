@@ -1,24 +1,27 @@
-Project: E-Ink Smart Display
-Das "E-Ink Smart Display" ist ein OpenSource-Projekt, das von Studierenden der DHBW Heilbronn im Rahmen des Moduls Projektkonzeption bis zum Ende des 6. Semesters entwickelt wird. 
-Ziel ist es, ein Smart Display zu realisieren, das über eine E-Ink-Anzeige verschiedene Informationen mittels Schnittstellen-Abfragen präsentieren kann.
+# Project: E-Ink Smart Display 
+The ‘E-Ink Smart Display’ is an open source project that is being developed by students at DHBW Heilbronn as part of the Project Conception module until the end of the 6th semester. The aim is to realise a smart display that can present various information via an e-ink display using interface queries.
 
-Die Kernfunktionen des Displays umfassen:
-Wetteranzeige: Darstellung von Wetterinformationen durch Icons, Zahlen und Text.
-Datumsanzeige: Anzeige des aktuellen Datums im Format tt.mm.jjjj.
-Uhr: Synchronisierte Uhrzeit basierend auf der Atomuhr für höchste Genauigkeit.
-Kalender: Visualisierung wichtiger Daten wie Geburtstage, Arzttermine und Abgabefristen.
+# The core functions of the display include
+### Weather display: 
+Presentation of weather information using icons, numbers and text. 
+### Date display: 
+Display of the current date in dd.mm.yyyy format. 
+### Clock: 
+Synchronised time based on the atomic clock for maximum accuracy. 
+### Calendar: 
+Visualisation of important dates such as birthdays, doctor's appointments and deadlines.
 
-Installing: 
+### Installing: 
 A step by step series of examples that tell you how to get a development env running
 
-Deployment: 
+### Deployment: 
 Add additional notes about how to deploy this on a live system
 
-Contributing:
+### Contributing: 
 Contribute.md?
 
-Authors: 
+### Authors: 
 Tobias Haldenwanger, Leon Karais, Jorim Bonk, Paul Schlestein, Lionel Mössinger
 
-License:
+### Licence: 
 This project is licensed under the MIT License - see the LICENSE.md file for details
