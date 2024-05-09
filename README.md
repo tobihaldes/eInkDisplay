@@ -1,6 +1,9 @@
 # Project: E-Ink Smart Display 
 The ‘E-Ink Smart Display’ is an open source project that is being developed by students at DHBW Heilbronn as part of the Project Conception module until the end of the 6th semester. The aim is to realise a smart display that can present various information via an e-ink display using interface queries.
 
+# A brief overview of the APIs implemented in the project
+![API](https://github.com/tobihaldes/eInkDisplay/assets/165897037/4c04f5b3-3efd-4f3e-9c81-d4414eddf892)
+
 # The core functions of the display include
 ### Weather display: 
 Presentation of weather information using icons, numbers and text. 
