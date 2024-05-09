@@ -43,3 +43,36 @@ This documentation provides an overview of the various APIs integrated within th
 - **Usage:**
   ```python
   formatted_datetime = format_datetime("20210101T120000")
+
+## Datetime API
+
+**File:** [`datetime.py`](/code/apis/datetime.py)
+
+**Functionality:** Retrieves the current date and time from an API.
+
+### Function: `get_date_and_time()`
+
+- **Description:** Sends a GET request to a timekeeping API to fetch the current date and time, providing this crucial information in a format that can be directly utilized by other components of the application.
+- **Returns:** A tuple containing the current date and time in separate strings (`date`, `time`), where `date` is formatted as `YYYY-MM-DD` and `time` as `HH:MM:SS`.
+- **Usage:**
+  ```python
+  date, time = get_date_and_time()
+
+## Stocks API
+
+**File:** [`stocks.py`](/code/apis/stocks.py)
+
+**Functionality:** Retrieves real-time stock price information.
+
+### Function: `stock_price(symbol, api_key)`
+
+- **Description:** Makes a GET request to a financial data API to fetch the current stock price for a given ticker symbol. The function extracts the specific price from the JSON response and formats it for display or further processing.
+- **Parameters:**
+  - `symbol` (string): The ticker symbol for the stock (e.g., "AAPL" for Apple Inc.).
+  - `api_key` (string): Your API key for accessing the stock data service.
+- **Returns:** A string representing the current price of the stock or an error message if the request fails.
+- **Usage:**
+  ```python
+  price = stock_price("AAPL", "your_api_key_here")
+
+
