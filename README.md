@@ -10,7 +10,13 @@ Display of the current date in dd.mm.yyyy format.
 Synchronised time based on the atomic clock for maximum accuracy. 
 ### Calendar: 
 Visualisation of important dates such as birthdays, doctor's appointments and deadlines.
-
+### Stock Price Display:
+Display of current stock prices.
+### News Feed:
+Display of current news in text form.
+### To-Do List:
+Display of a list of tasks.
+### Wi-Fi Connectivity
 # 
 
 ### Installing: 
