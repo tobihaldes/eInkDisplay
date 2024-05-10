@@ -1,4 +1,5 @@
 import framebuf
+import config
 from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
 from apis.toDo import toDoList
@@ -103,8 +104,7 @@ class Weather_Tile_s(Tile):
     def draw_canvas(self, can):
         
         #Get weather data
-        api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
-        weather_forecast = get_weather_forecast(api_url)
+        weather_forecast = get_weather_forecast(config.weather_config['url'])
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
@@ -156,8 +156,7 @@ class Weather_Tile_l(Tile):
         can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
         
         #Get weather data
-        api_url = "https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min"
-        weather_forecast = get_weather_forecast(api_url)
+        weather_forecast = get_weather_forecast(config.weather_config['url'])
         
         weather_x_cords = [0, 187, 374, 0, 187, 374]
         weather_y_cords = [0, 0, 0, 242, 242, 242]
@@ -218,9 +217,7 @@ class ToDo_Tile(Tile):
     def draw_canvas(self, can):
         
         #get Tasks:
-        api_token = 'a7f3b805fdf80789ea5953f6d4eb7a799309a9b1'
-        project_id = '2332430307'
-        tasks = toDoList(api_token, project_id)        
+        tasks = toDoList(config.toDo_config['api_token'], config.toDo_config['project_id'])        
         print(tasks)
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         
@@ -286,7 +283,7 @@ class Calendar_Tile(Tile):
         
         #get Calendar Data
         url = 'http://p139-caldav.icloud.com/published/2/MTE1NzQwNjE0NzQxMTU3NDmLjpu4-S1Y9s3ZY6FOrrHnIwf0-kAOhn-6sr24tcTFaqodbcvwQ-1iUIyMWm_Q-QI6qieG29wXJSUU0hdN6JI'
-        events = get_next_events(url)
+        events = get_next_events(config.calendar_config['url'])
         
         if len(events) >= 5:
             calendar_data = [["Eintrag ", events[0]['summary'], events[0]['start_time']], ["Eintrag ", events[1]['summary'], events[1]['start_time']], ["Eintrag ", events[2]['summary'], events[2]['start_time']], ["Eintrag ", events[3]['summary'], events[3]['start_time']], ["Eintrag ", events[4]['summary'], events[4]['start_time']]]
@@ -345,17 +342,14 @@ class News_Tile(Tile):
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
         
         #Abfrage der News
-        url = 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
-        #news_titles = get_latest_news(url)
+        #news_titles = get_latest_news(config.news_config['url'])
         
         #Aufrufen der News
         #news_titles[0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
         #Da aber News-Tile noch nicht fertig ist, noch auskommentiert.
         
-        #Abfrage für Aktienkurs, bspw. für Apple:
-        symbol = 'AAPL' #Microsoft: MSFT, Amazon: AMZN,...
-        api_key = '7I5ZTASNKQWHN3PT'
-        price = stock_price(symbol, api_key)
+        #Abfrage für Aktienkurs
+        price = stock_price(config.stock_config['symbol'], config.stock_config['api_token'])
         #muss nur noch angezeigt werden, nach absprache mit Design Team.
         print(price)
         news_data =[news_titles[0], news_titles[1], news_titles[2], news_titles[3], news_titles[4], news_titles[5]]
