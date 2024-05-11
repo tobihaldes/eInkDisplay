@@ -34,7 +34,7 @@
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
 # 3. Housing: 
-Customised frame
+Customised frame - dimensions to follow
 
 
 
