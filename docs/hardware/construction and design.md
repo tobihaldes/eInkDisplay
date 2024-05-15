@@ -34,7 +34,39 @@
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
 # 3. Housing: 
-Customised frame - dimensions to follow
+## Dimensions of the Housing
+
+1. **Overall Size of the Housing:**
+   - **Width:** 183.20 mm
+   - **Height:** 165.00 mm
+   - **Depth:** 40.00 mm
+
+2. **Display Area:**
+   - **External Dimensions of the Display:** 170.2 x 111.2 mm
+   - **Screen Size:** 163.2 x 97.92 mm
+
+3. **Frame Thickness:**
+   - **Side Frame:** 2.00 mm
+   - **Top Frame:** 10.00 mm
+
+4. **Placement of Buttons:**
+   - **Number of Buttons:** 3
+   - **Spacing Between Buttons:** 13.00 mm
+   - **Button Size:** 12 x 12 mm
+
+5. **Depth of the Housing Wall:**
+   - **Front Housing Depth:** 37.00 mm
+   - **Rear Housing Depth:** 40.00 mm
+
+6. **Cutout for Electronics (Raspberry Pi Pico W):**
+   - **Length:** 165.00 mm
+   - **Width:** 111.30 mm
+   - **Height:** 24.00 mm
+
+## General Shape and Structure of the Housing
+
+The housing for the E-Ink display is rectangular and consists of several main components. It has a deep recess to securely hold the display while also providing space for the Raspberry Pi and associated electronic components. The front of the housing is dominated by the screen area, with a slim frame to maximize the visibility of the screen. Three control buttons are positioned below the display, evenly spaced to allow for easy operation. The housing has sufficient depth to accommodate the electronics, with no additional elements on the sides, ensuring a sleek profile. The back of the housing provides space for the power supply and wiring of the electronics. The rear panel is removable to facilitate access to the internal components. The bottom surface offers ample space for stable placement of the housing and is designed to accommodate the power supply components.
+
 
 
 
