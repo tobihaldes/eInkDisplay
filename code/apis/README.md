@@ -75,4 +75,52 @@ This documentation provides an overview of the various APIs integrated within th
   ```python
   price = stock_price("AAPL", "your_api_key_here")
 
+## ToDo API
 
+**File:** [`toDo.py`](/code/apis/toDo.py)
+
+**Functionality:** Manages tasks from a project management tool API.
+
+### Function: `toDoList(token, project_id)`
+
+- **Description:** Retrieves a list of tasks with descriptions and due dates for a specified project.
+- **Parameters:**
+  - `token` (string): Authorization token.
+  - `project_id` (string): Project identifier.
+- **Returns:** A list of tasks with descriptions and due dates.
+- **Usage:**
+  ```python
+  tasks = toDoList("your_auth_token", "your_project_id")
+
+## Weather API
+
+**File:** [`weather.py`](/code/apis/weather.py)
+
+**Functionality:** Provides weather forecasts including temperature ranges and weather conditions.
+
+### Function: `get_weather_forecast(api_url)`
+
+- **Description:** Fetches weather forecasts from the specified API URL, including temperature ranges and weather conditions for the upcoming days.
+- **Parameters:**
+  - `api_url` (string): URL to the weather forecast API.
+- **Returns:** A list of weather forecasts for the upcoming days.
+- **Usage:**
+  ```python
+  forecast = get_weather_forecast("https://api.example.com/weather")
+
+## WiFi API
+
+**File:** [`wifi.py`](/code/apis/wifi.py)
+
+**Functionality:** Manages WiFi connectivity to connect to networks.
+
+### Function: `connect_to_wifi(ssid, password)`
+
+- **Description:** Connects to a specified WiFi network using the provided SSID and password.
+- **Parameters:**
+  - `ssid` (string): The SSID of the WiFi network.
+  - `password` (string): The password for the WiFi network.
+- **Returns:** Boolean indicating the connection status.
+- **Usage:**
+  ```python
+  connected = connect_to_wifi("NetworkSSID", "Password123")
