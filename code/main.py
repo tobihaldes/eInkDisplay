@@ -35,7 +35,7 @@ if __name__=='__main__':
     btn_prev = Button(2)                  #KEY0 GP2 pin 4
     btn_prev.when_pressed = button_prev
     
-    # Layout
+    #Layout
     gallery = tiles.tile_gallery([
             #tiles.Weather_Tile_l(0,0),
             #tiles.ToDo_Tile(0,0),

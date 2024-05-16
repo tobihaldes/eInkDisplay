@@ -193,11 +193,33 @@ class EPD_7in5_B:
         self.send_data(0x00)
         self.send_data(0x00)
         
+        ########################################################################################################
+        
+        #Check Battery Voltage
+        adc = ADC(28)
+        sensorValue = adc.read_u16()
+        voltage = sensorValue * (3.3 / 65535)
+        if voltage < 2:
+            #add tile
+            print("Battery empty: "+ str(voltage)+ "V")
+            #batt_tile = tiles.BattEmpty_Tile(0,0)
+            #batt_tile.draw_canvas(self)
+            #
+        print("Battery Voltage: "+ str(voltage)+ "V")
+        del adc
+        
+        
+        #Conntect to Wifi
         result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
         print("Verbindungsstatus:", result)
         
         if result == "False"
             #add tile
+            #wifi_tile = tiles.noWifi_Tile(0,0)
+            #wifi_tile.draw_canvas(self)
+        
+        ###############################################################################################
+        
         
         return 0;
 
