@@ -196,6 +196,9 @@ class EPD_7in5_B:
         result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
         print("Verbindungsstatus:", result)
         
+        if result == "False"
+            #add tile
+        
         return 0;
 
     def Clear(self):
