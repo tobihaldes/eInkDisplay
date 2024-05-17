@@ -155,4 +155,90 @@ The main file of the project. It initializes the system and contains the logic f
           update_flag -= 1
           time.sleep(1)
   ```
+### tiles.py
+
+This file defines various types of tiles that can be displayed on the dashboard.
+
+- **Tile Class**: Base class for all tile types, defining basic functions.
+  ```python
+  class Tile():
+      width = 100
+      height = 100
+      
+      def __init__(self, x, y):
+          self.y = y
+          self.x = x
+          
+      def draw_canvas(self, can):
+          can.imagered.fill(0x00)
+          can.imageblack.fill(0xff)
+  ```
+
+- **tile_gallery Class**: Tile to display a gallery of sub-tiles.
+  ```python
+  class tile_gallery(Tile):
+      def __init__(self, tiles):
+          self.tiles= tiles
+          self.num_tiles = len(tiles)
+          self.current_index = 0
+  ```
+
+- **Clock_Tile_s Class**: Tile to display the time.
+  ```python
+  class Clock_Tile_s(Tile):
+      width = 240
+      height = 240
+      
+      def draw_canvas(self, can):
+          ...
+  ```
+
+- **Weather_Tile_s and Weather_Tile_l Classes**: Tiles to display weather information.
+  ```python
+  class Weather_Tile_s(Tile):
+      width = 240
+      height = 240
+      
+      def draw_canvas(self, can):
+          ...
+  
+  class Weather_Tile_l(Tile):
+      width = 560
+      height = 480
+      
+      def draw_canvas(self, can):
+          ...
+  ```
+
+- **ToDo_Tile Class**: Tile to display to-do lists.
+  ```python
+  class ToDo_Tile(Tile):
+      width = 560
+      height = 480
+      
+      def draw_canvas(self, can):
+          ...
+  ```
+
+- **Calendar_Tile Class**: Tile to display calendar events.
+  ```python
+  class Calendar_Tile(Tile):
+      width = 560
+      height = 480
+      
+      def draw_canvas(self, can):
+          ...
+  ```
+
+- **News_Tile Class**: Tile to display news and stock prices.
+  ```python
+  class News_Tile(Tile):
+      width = 560
+      height = 480
+      
+      def draw_canvas(self, can):
+          ...
+  ```
+
+
 
