@@ -48,3 +48,111 @@ This file contains configuration parameters for the various services used by the
       'api_token': '7I5ZTASNKQWHN3PT'
   }
   ```
+
+  ### driver.py
+
+This file contains the driver for the E-Ink display. The driver is based on a driver provided by Waveshare but has been customized for this project.
+
+#### Customizations in driver.py
+
+- **RAM Allocation**: Modifications have been made to allocate RAM for large byte arrays first to avoid heap fragmentation.
+  ```python
+  buffer_black = bytearray(48000)
+  buffer_red = bytearray(48000)
+  ```
+
+- **Display Initialization**: Customizations to handle display hardware initialization and prevent memory issues.
+  ```python
+  class EPD_7in5_B:
+      def __init__(self, tiles):
+          global buffer_black, buffer_red
+          self.tiles = tiles
+          self.buffer_black = buffer_black
+          self.buffer_red = buffer_red
+          ...
+  ```
+
+- **Custom Methods**:
+  - **refresh_framebuffer**: Updates the framebuffer with the current data from the tiles.
+    ```python
+    def refresh_framebuffer(self):
+        self.imageblack.fill(0xff)
+        self.imagered.fill(0x00)
+        
+        for tile in self.tiles:
+            if not isinstance(tile, tiles.Tile):
+                raise TypeError("Invalid tile type passed.")
+            tile.draw_canvas(self)
+    ```
+
+  - **init**: Customizations to initialize the Wi-Fi connection and retrieve configuration data.
+    ```python
+    def init(self):
+        ...
+        result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
+        print("Connection status:", result)
+        ...
+    ```
+### icons.py
+
+This file defines various icons that can be displayed on the E-Ink display.
+
+- **Icon Class**: Contains byte arrays for different icons (e.g., sun, cloud) used in the weather display.
+  ```python
+  class Icon():
+      sun_data = bytearray([...])
+      bewoelkt_data = bytearray([...])
+      cloud_data = bytearray([...])
+  ```
+
+- **draw_icon Method**: Creates FrameBuffers for the icons.
+  ```python
+  def draw_icon(self, icon):
+      if icon == "sun":
+          icon_fb = framebuf.FrameBuffer(self.sun_data, 100, 100, framebuf.MONO_HLSB)
+      elif icon == "bewoelkt":
+          icon_fb = framebuf.FrameBuffer(self.bewoelkt_data, 100, 100, framebuf.MONO_HLSB)
+      elif icon == "wolke":
+          icon_fb = framebuf.FrameBuffer(self.cloud_data, 100, 100, framebuf.MONO_HLSB)
+      return icon_fb
+  ```
+### main.py
+
+The main file of the project. It initializes the system and contains the logic for displaying various tiles of information on the E-Ink display.
+
+- **Button Initialization**: Configures buttons for navigating between tiles.
+  ```python
+  btn_next = Button(3)
+  btn_next.when_pressed = button_next
+  btn_prev = Button(2)
+  btn_prev.when_pressed = button_prev
+  ```
+
+- **Layout Definition**: Defines the layout of the tiles to be displayed.
+  ```python
+  gallery = tiles.tile_gallery([
+          tiles.Calendar_Tile(0,0),
+          tiles.News_Tile(0,0),
+      ])
+  
+  layout = [
+      tiles.Clock_Tile_s(560, 0),
+      tiles.Weather_Tile_s(560, 240),
+      gallery,
+  ]
+  ```
+
+- **Display Logic**: Contains the main loop for updating the display and handling button events.
+  ```python
+  while True:
+      update_flag = 60
+      display.init()
+      display.display()
+      display.delay_ms(1000)
+      display.sleep()
+      display.delay_ms(1000)
+      while update_flag > 0:
+          update_flag -= 1
+          time.sleep(1)
+  ```
+
