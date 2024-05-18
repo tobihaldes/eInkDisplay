@@ -62,6 +62,18 @@
    - **Length:** 165.00 mm
    - **Width:** 111.30 mm
    - **Height:** 24.00 mm
+   - 
+## General Shape and Structure of the Housing
+
+The housing for the E-Ink display is rectangular and consists of several main components. It has a deep recess to securely hold the display while also providing space for the Raspberry Pi and associated electronic components. The front of the housing is dominated by the screen area, with a slim frame to maximize the visibility of the screen. Three control buttons are positioned below the display, evenly spaced to allow for easy operation. The housing has sufficient depth to accommodate the electronics, with no additional elements on the sides, ensuring a sleek profile. The back of the housing provides space for the power supply and wiring of the electronics. The rear panel is removable to facilitate access to the internal components. The bottom surface offers ample space for stable placement of the housing and is designed to accommodate the power supply components.
+
+## Integration of the Display
+
+The WaveShare 7.5-inch E-Paper E-Ink Display Module (B) is securely held within the frame of the housing. The precise fit ensures that the display does not shift and remains optimally visible. The frame has an opening that precisely matches the visible screen area of the E-Ink display.
+
+## Modeling with Fusion 
+
+Fusion was used for modeling the housing. Fusion 360 is a cloud-based 3D CAD, CAM, and CAE tool for product design and manufacturing. It combines industrial and mechanical design, simulation, collaboration, and machining.
 
 
 ## Screenshots of the model from Fusion
