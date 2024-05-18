@@ -70,6 +70,16 @@ This file contains the driver for the E-Ink display. The driver is based on a dr
           self.buffer_black = buffer_black
           self.buffer_red = buffer_red
           ...
+- **Check Battery Voltage**: The code reads the battery voltage using an ADC (Analog-Digital Converter) and prints the voltage. If the voltage is below 2V, it indicates the battery is empty.
+  ```python
+
+  adc = ADC(28)
+  sensor_value = adc.read_u16()
+  voltage = sensor_value * (3.3 / 65535)
+  if voltage < 2:
+      print("Battery empty: " + str(voltage) + "V")
+  print("Battery Voltage: " + str(voltage) + "V")
+  del adc
   ```
 
 - **Custom Methods**:
