@@ -396,3 +396,64 @@ class News_Tile(Tile):
             if k>6:
                 break
         
+class BatteryLow(Tile):
+    width = 800
+    height = 480
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+
+        can.imagered.ellipse(self.x+400, self.y+240, 200, 200, red, True, )
+        can.imagered.ellipse(self.x+400, self.y+240, 190, 190, 0x00, True)
+        
+        can.imagered.rect(self.x+275, self.y+180, 250, 120, red, True)
+        can.imagered.rect(self.x+285, self.y+190, 230, 100, 0x00, True)
+        
+        can.imagered.rect(self.x+290, self.y+195, 40, 90, red, True)
+        can.imagered.rect(self.x+335, self.y+195, 40, 90, red, False)
+        can.imagered.rect(self.x+380, self.y+195, 40, 90, red, False)
+        can.imagered.rect(self.x+380, self.y+195, 40, 90, red, False)
+        can.imagered.rect(self.x+425, self.y+195, 40, 90, red, False)
+        can.imagered.rect(self.x+470, self.y+195, 40, 90, red, False)
+        
+        can.imagered.rect(self.x+525, self.y+225, 10, 30, red, True)
+    
+        s=0
+        for i in range(15):
+            can.imagered.line(self.x+510+s, self.y+85, self.x+275+s, self.y+395, red)
+            s=s+1
+
+        can.imagered.text("Please replace the batteries!",self.x+290, self.y+460, red)
+
+            
+class NoConnection(Tile):
+    width = 800
+    height = 480
+    def draw_canvas(self, can):
+        can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
+      
+
+        can.imagered.ellipse(self.x+400, self.y+240, 200, 200, red, True, )
+        can.imagered.ellipse(self.x+400, self.y+240, 190, 190, 0x00, True)
+        
+        can.imagered.ellipse(self.x+400, self.y+290, 150, 150, red, True, 3)
+        can.imagered.ellipse(self.x+400, self.y+290, 140, 140, 0x00, True)
+        
+        can.imagered.ellipse(self.x+400, self.y+290, 120, 120, red, True, 3)
+        can.imagered.ellipse(self.x+400, self.y+290, 110, 110, 0x00, True)
+        
+        can.imagered.ellipse(self.x+400, self.y+290, 90, 90, red, True, 3)
+        can.imagered.ellipse(self.x+400, self.y+290, 80, 80, 0x00, True)
+        
+        can.imagered.ellipse(self.x+400, self.y+290, 60, 60, red, True, 3)
+        can.imagered.ellipse(self.x+400, self.y+290, 50, 50, 0x00, True)
+        
+        can.imagered.ellipse(self.x+400, self.y+290, 30, 30, red, True, )
+        
+        s=0
+        for i in range(15):
+            can.imagered.line(self.x+510+s, self.y+85, self.x+275+s, self.y+395, red)
+            s=s+1
+        
+        can.imagered.text("Pleace check your WIFI connection and Config.py!",self.x+220, self.y+460, red)
+        
+        
