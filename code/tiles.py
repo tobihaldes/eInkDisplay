@@ -20,7 +20,6 @@ class Tile():
         self.x = x
         
     def draw_canvas(self, can):
-        print("a")
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
 
