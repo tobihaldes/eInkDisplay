@@ -28,11 +28,8 @@
 #
 
 #########################################################################
-# Modified code is Marked wit a comment with following syntax:
 
-### Custom line ###
-
-###################
+# Modifications to code have been marked
 
 #########################################################################
 
@@ -46,8 +43,7 @@ gc.collect()
 from apis.wifi import connect_to_wifi
 import config
 gc.collect()
-from machine import Pin, SPI
-import micropython
+from machine import Pin, SPI, lightsleep
 import framebuf
 import utime
 
@@ -64,12 +60,12 @@ BUSY_PIN        = 13
 class EPD_7in5_B:
     def __init__(self, tiles):
         
-        ### Custom line ###
+        ### Custom code #####################
         global buffer_black, buffer_red
         self.tiles = tiles
         self.buffer_black = buffer_black
         self.buffer_red = buffer_red
-        ###################
+        #####################################
         
         self.reset_pin = Pin(RST_PIN, Pin.OUT)
         
@@ -82,14 +78,6 @@ class EPD_7in5_B:
         self.spi.init(baudrate=4000_000)
         self.dc_pin = Pin(DC_PIN, Pin.OUT)
         
-        """
-        gc.collect()
-        self.buffer_black = bytearray(self.height * self.width // 8)
-        gc.collect()
-        micropython.mem_info(1)
-        self.buffer_red = bytearray(self.height * self.width // 8)
-        gc.collect()
-        """
         self.imageblack = framebuf.FrameBuffer(buffer_black, self.width, self.height, framebuf.MONO_HLSB)
         self.imagered = framebuf.FrameBuffer(buffer_red, self.width, self.height, framebuf.MONO_HLSB)
         self.init()
@@ -193,35 +181,46 @@ class EPD_7in5_B:
         self.send_data(0x00)
         self.send_data(0x00)
         
-        ########################################################################################################
+        ##################### Custom Code ########################################################
         
         #Check Battery Voltage
         adc = ADC(28)
         sensorValue = adc.read_u16()
         voltage = sensorValue * (3.3 / 65535)
         if voltage < 2:
-            #add tile
             print("Battery empty: "+ str(voltage)+ "V")
             #batt_tile = tiles.BattEmpty_Tile(0,0)
             #batt_tile.draw_canvas(self)
-            #
+            #self.display(refresh_framebuff=False)
+            #machine.lightsleep() #go to sleep indefinitely
         print("Battery Voltage: "+ str(voltage)+ "V")
         del adc
         
         
         #Conntect to Wifi
-        result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
-        print("Verbindungsstatus:", result)
-        
-        if result == "False"
-            #add tile
+        while True: #no Do While in Python, using break condition
+            result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
+            print("Verbindungsstatus:", result)
+            if result:
+                break
+            
             #wifi_tile = tiles.noWifi_Tile(0,0)
             #wifi_tile.draw_canvas(self)
-        
-        ###############################################################################################
-        
+            #self.display(refresh_framebuff=False)
+            machine.lightsleep(60000) #Wait 1 minute before reconnecting to wifi
         
         return 0;
+    
+    def refresh_framebuffer(self):
+        self.imageblack.fill(0xff)
+        self.imagered.fill(0x00)
+        
+        for tile in self.tiles:
+            if not isinstance(tile, tiles.Tile):
+                raise TypeError("Invalid tile type passed.")
+            tile.draw_canvas(self)
+            
+    ###############################################################################################
 
     def Clear(self):
         
@@ -277,9 +276,10 @@ class EPD_7in5_B:
                 
         self.TurnOnDisplay()
         
-    def display(self):
-
-        self.refresh_framebuffer()
+    def display(self, refresh_framebuff=True):
+        
+        if refresh_framebuff:
+            self.refresh_framebuffer()
         
         high = self.height
         if( self.width % 8 == 0) :
@@ -305,21 +305,5 @@ class EPD_7in5_B:
         self.WaitUntilIdle()
         self.send_command(0x07) # deep sleep
         self.send_data(0xa5)
-
-
-
-    ### Custom method ###
-        
-    def refresh_framebuffer(self):
-        self.imageblack.fill(0xff)
-        self.imagered.fill(0x00)
-        
-        for tile in self.tiles:
-            if not isinstance(tile, tiles.Tile):
-                raise TypeError("Invalid tile type passed.")
-            tile.draw_canvas(self)
-            
-    #####################
-     
     
 

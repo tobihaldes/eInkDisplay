@@ -1,3 +1,5 @@
+import tiles
+
 wifi_config = {
     'ssid': 'Notebook von Tobi',
     'password': '1357924680'
@@ -25,3 +27,21 @@ stock_config = {
     'symbol': 'AAPL',
     'api_token': '7I5ZTASNKQWHN3PT'
 }
+
+# Cycle throgh these tiles in the gallery using the next and previous Button (X, Y)
+gallery = tiles.tile_gallery([
+            #tiles.Weather_Tile_l(0,0),
+            #tiles.ToDo_Tile(0,0),
+            tiles.Calendar_Tile(0,0),
+            tiles.News_Tile(0,0),
+            ])
+
+# Add static tiles that will be shown contiously (X, Y)
+layout = [
+            tiles.Clock_Tile_s(560, 0),
+            tiles.Weather_Tile_s(560, 240),
+            gallery,
+         ]
+
+
+
