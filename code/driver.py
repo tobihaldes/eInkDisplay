@@ -43,7 +43,7 @@ gc.collect()
 from apis.wifi import connect_to_wifi
 import config
 gc.collect()
-from machine import Pin, SPI, lightsleep
+from machine import Pin, SPI, lightsleep, ADC
 import framebuf
 import utime
 
