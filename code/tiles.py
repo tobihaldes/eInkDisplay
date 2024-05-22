@@ -1,5 +1,6 @@
 import framebuf
 import config
+import icons
 from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
 from apis.toDo import toDoList
@@ -163,8 +164,7 @@ class Weather_Tile_l(Tile):
         temp_high = [weather_forecast[1]['max_temp'], weather_forecast[2]['max_temp'], weather_forecast[3]['max_temp'], weather_forecast[4]['max_temp'], weather_forecast[5]['max_temp'], weather_forecast[6]['max_temp']]
         temp_low = [weather_forecast[1]['min_temp'], weather_forecast[2]['min_temp'], weather_forecast[3]['min_temp'], weather_forecast[4]['min_temp'], weather_forecast[5]['min_temp'], weather_forecast[6]['min_temp']]
         weather_status = [weather_forecast[1]['weather'], weather_forecast[2]['weather'], weather_forecast[3]['weather'], weather_forecast[4]['weather'], weather_forecast[5]['weather'], weather_forecast[6]['weather']]
-        #weather_icon = [weather_forecast[1]['weathercode'], [weather_forecast[2]['weathercode'], [weather_forecast[3]['weathercode'], [weather_forecast[4]['weathercode'], [weather_forecast[5]['weathercode'], [weather_forecast[6]['weathercode']]
-        weather_icon = [1, 2, 3, 1, 2, 1]
+        weather_icon = [weather_forecast[1]['weathercode'], [weather_forecast[2]['weathercode'], [weather_forecast[3]['weathercode'], [weather_forecast[4]['weathercode'], [weather_forecast[5]['weathercode'], [weather_forecast[6]['weathercode']]
         k=0
         for i in range(6):
             can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
@@ -197,17 +197,22 @@ class Weather_Tile_l(Tile):
             if current_row:
                 can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
             #Weathe Icon
-            if weather_icon[k]==1:
-                can.imageblack.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, black, False)
-                can.imagered.text("Icon 1 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, red)
-            elif weather_icon[k]==2:
-                can.imageblack.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, black, False)
-                can.imagered.text("Icon 2 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, red)
+            if weather_icon[k]==0:
+                can.imageblack.blit(icons.draw_icon("sun"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]==1 or weather_icon[k]==2:
+                can.imageblack.blit(icons.draw_icon("bewoelkt"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]==3:
-                can.imagered.rect(self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40, 100, 100, red, False)
-                can.imageblack.text("Icon 3 POC", self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+80, black)
+                can.imageblack.blit(icons.draw_icon("wolke"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]== 45 or 48:
+                can.imageblack.blit(icons.draw_icon("nebel"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]>50 and weather_icon[k]<68 or weather_icon[k]>80 and weather_icon[k]<87:
+                can.imageblack.blit(icons.draw_icon("regen"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]==95 or weather_icon[k]==99:
+                can.imageblack.blit(icons.draw_icon("gewitter"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]>70 and weather_icon[k]<78:
+                can.imageblack.blit(icons.draw_icon("schnee"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             k=k+1
-            if k>7:
+            if k>99:
                 break
     
 class ToDo_Tile(Tile):
