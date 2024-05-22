@@ -202,17 +202,17 @@ class Weather_Tile_l(Tile):
             if weather_icon[k]==0:
                 can.imageblack.blit(icons.draw_icon("sun"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]==1 or weather_icon[k]==2:
-                can.imageblack.blit(icons.draw_icon("bewoelkt"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+                can.imageblack.blit(icons.draw_icon("cloudy"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]==3:
-                can.imageblack.blit(icons.draw_icon("wolke"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]== 45 or 48:
-                can.imageblack.blit(icons.draw_icon("nebel"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+                can.imageblack.blit(icons.draw_icon("cloud"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            elif weather_icon[k]== 45 or weather_icon[k]== 48:
+                can.imageblack.blit(icons.draw_icon("fog"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]>50 and weather_icon[k]<68 or weather_icon[k]>80 and weather_icon[k]<87:
-                can.imageblack.blit(icons.draw_icon("regen"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+                can.imageblack.blit(icons.draw_icon("rain"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]==95 or weather_icon[k]==99 or weather_icon[k]==96:
-                can.imageblack.blit(icons.draw_icon("gewitter"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+                can.imageblack.blit(icons.draw_icon("storm"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]>70 and weather_icon[k]<78:
-                can.imageblack.blit(icons.draw_icon("schnee"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+                can.imageblack.blit(icons.draw_icon("snow"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             k=k+1
             if k>99:
                 break

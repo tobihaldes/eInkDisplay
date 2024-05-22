@@ -52,7 +52,7 @@ def get_weather_forecast(api_url):
                 min_temp = daily_data["temperature_2m_min"][i]
                 forecast.append({
                     "date": date,
-                    "weather": str(weather_code),
+                    "weather": weather_description,
                     "weathercode": weather_code,
                     "max_temp": f"{max_temp} C",
                     "min_temp": f"{min_temp} C"
