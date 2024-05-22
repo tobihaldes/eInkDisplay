@@ -455,4 +455,4 @@ class NoConnection(Tile):
         
         can.imagered.text("Pleace check your WIFI connection and Config.py!",self.x+220, self.y+460, red)
         
-        
+         
