@@ -189,10 +189,11 @@ class EPD_7in5_B:
         voltage = sensorValue * (3.3 / 65535)
         if voltage < 2:
             print("Battery empty: "+ str(voltage)+ "V")
-            #batt_tile = tiles.BattEmpty_Tile(0,0)
-            #batt_tile.draw_canvas(self)
-            #self.display(refresh_framebuff=False)
-            #machine.lightsleep() #go to sleep indefinitely
+            batt_tile = tiles.BatteryLow(0,0)
+            batt_tile.draw_canvas(self)
+            self.display(refresh_framebuff=False)
+            utime.sleep(3)
+            lightsleep() #go to sleep indefinitely
         print("Battery Voltage: "+ str(voltage)+ "V")
         del adc
         
@@ -204,10 +205,11 @@ class EPD_7in5_B:
             if result:
                 break
             
-            #wifi_tile = tiles.noWifi_Tile(0,0)
-            #wifi_tile.draw_canvas(self)
-            #self.display(refresh_framebuff=False)
-            machine.lightsleep(60000) #Wait 1 minute before reconnecting to wifi
+            wifi_tile = tiles.NoConnection(0,0)
+            wifi_tile.draw_canvas(self)
+            self.display(refresh_framebuff=False)
+            utime.sleep(3)
+            lightsleep(60000) #Wait 1 minute before reconnecting to wifi
         
         return 0;
     

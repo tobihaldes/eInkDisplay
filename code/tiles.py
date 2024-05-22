@@ -341,7 +341,7 @@ class News_Tile(Tile):
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
         
         #Abfrage der News
-        #news_titles = get_latest_news(config.news_config['url'])
+        news_titles = get_latest_news(config.news_config['url'])
         
         #Aufrufen der News
         #news_titles[0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
