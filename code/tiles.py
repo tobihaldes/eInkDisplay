@@ -631,19 +631,19 @@ class Weather_Tile_l(Tile):
     
     def draw_weather_tile(can, weather_code, x, y, x_cords, y_cords):
         if weather_code == 0:
-            can.imageblack.blit(icons.draw_icon("sun"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("sun"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 1 or weather_code == 2:
-            can.imageblack.blit(icons.draw_icon("cloudy"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("cloudy"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 3:
-            can.imageblack.blit(icons.draw_icon("cloud"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("cloud"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 45 or weather_code == 48:
-            can.imageblack.blit(icons.draw_icon("fog"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("fog"), x + x_cords + 43, y + y_cords + 40)
         elif (weather_code > 50 and weather_code < 68) or (weather_code > 80 and weather_code < 87):
-            can.imageblack.blit(icons.draw_icon("rain"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("rain"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 95 or weather_code == 99 or weather_code == 96:
-            can.imageblack.blit(icons.draw_icon("storm"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("storm"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code > 70 and weather_code < 78:
-            can.imageblack.blit(icons.draw_icon("snow"), x + x_cords + 43, y + y_cords + 40)
+            can.imageblack.blit(icons.Icon.draw_icon("snow"), x + x_cords + 43, y + y_cords + 40)
 
     
     def draw_canvas(self, can):
