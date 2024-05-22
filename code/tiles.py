@@ -113,6 +113,8 @@ class Weather_Tile_s(Tile):
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
         weather_icon = weather_forecast[0]['weathercode']
+        Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 70, 41)
+        
       
         y_row_counter = 0
         row_count = 0
@@ -144,6 +146,23 @@ class Weather_Tile_s(Tile):
 class Weather_Tile_l(Tile):
     width = 560
     height = 480
+    
+    def draw_weather_tile(can, weather_code, x, y, x_cords, y_cords):
+        if weather_code == 0:
+            can.imageblack.blit(icons.draw_icon("sun"), x + x_cords + 43, y + y_cords + 40)
+        elif weather_code == 1 or weather_code == 2:
+            can.imageblack.blit(icons.draw_icon("cloudy"), x + x_cords + 43, y + y_cords + 40)
+        elif weather_code == 3:
+            can.imageblack.blit(icons.draw_icon("cloud"), x + x_cords + 43, y + y_cords + 40)
+        elif weather_code == 45 or weather_code == 48:
+            can.imageblack.blit(icons.draw_icon("fog"), x + x_cords + 43, y + y_cords + 40)
+        elif (weather_code > 50 and weather_code < 68) or (weather_code > 80 and weather_code < 87):
+            can.imageblack.blit(icons.draw_icon("rain"), x + x_cords + 43, y + y_cords + 40)
+        elif weather_code == 95 or weather_code == 99 or weather_code == 96:
+            can.imageblack.blit(icons.draw_icon("storm"), x + x_cords + 43, y + y_cords + 40)
+        elif weather_code > 70 and weather_code < 78:
+            can.imageblack.blit(icons.draw_icon("snow"), x + x_cords + 43, y + y_cords + 40)
+
     
     def draw_canvas(self, can):
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
@@ -198,21 +217,7 @@ class Weather_Tile_l(Tile):
             # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
             if current_row:
                 can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
-            #Weather Icon
-            if weather_icon[k]==0:
-                can.imageblack.blit(icons.draw_icon("sun"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]==1 or weather_icon[k]==2:
-                can.imageblack.blit(icons.draw_icon("cloudy"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]==3:
-                can.imageblack.blit(icons.draw_icon("cloud"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]== 45 or weather_icon[k]== 48:
-                can.imageblack.blit(icons.draw_icon("fog"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]>50 and weather_icon[k]<68 or weather_icon[k]>80 and weather_icon[k]<87:
-                can.imageblack.blit(icons.draw_icon("rain"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]==95 or weather_icon[k]==99 or weather_icon[k]==96:
-                can.imageblack.blit(icons.draw_icon("storm"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]>70 and weather_icon[k]<78:
-                can.imageblack.blit(icons.draw_icon("snow"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
+            Weather_Tile_l.draw_weather_tile(can, weather_icon[k], self.x, self.y, weather_x_cords[k], weather_y_cords[k])
             k=k+1
             if k>99:
                 break
