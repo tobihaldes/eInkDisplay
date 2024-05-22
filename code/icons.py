@@ -3,7 +3,7 @@ import framebuf
 
 class Icon():
     
-    
+#"Icon made by Good Ware from www.flaticon.com"
     sun_data = bytearray([
             0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 
 0xff, 0xff, 0xfe, 0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 
@@ -88,7 +88,8 @@ class Icon():
 0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x0f, 0xff, 0xff, 
 0xff, 0xff, 0xff, 0xf0
     ])
-        
+
+#"Icon made by Freepik from www.flaticon.com"
     cloudy_data = bytearray([
             0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 
 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
@@ -173,7 +174,8 @@ class Icon():
 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 0xff, 0xff, 0xff, 0xf0
     ])
-        
+
+#"Icon made by Freepik from www.flaticon.com"
     cloud_data = bytearray([
             0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 
 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
@@ -607,17 +609,17 @@ class Icon():
         
     def draw_icon(icon):
             if icon == "sun":
-                icon_fb = framebuf.FrameBuffer(sun_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.sun_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "cloudy":
-                icon_fb = framebuf.FrameBuffer(cloudy_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.cloudy_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "cloud":
-                icon_fb = framebuf.FrameBuffer(cloud_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.cloud_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "fog":
-                icon_fb = framebuf.FrameBuffer(fog_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.fog_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "rain":
-                icon_fb = framebuf.FrameBuffer(rain_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.rain_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "storm":
-                icon_fb = framebuf.FrameBuffer(storm_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.storm_data, 100, 100, framebuf.MONO_HLSB)
             elif icon == "snow":
-                icon_fb = framebuf.FrameBuffer(snow_data, 100, 100, framebuf.MONO_HLSB)
+                icon_fb = framebuf.FrameBuffer(Icon.snow_data, 100, 100, framebuf.MONO_HLSB)
             return icon_fb
