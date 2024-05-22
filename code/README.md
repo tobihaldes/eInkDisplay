@@ -102,6 +102,13 @@ This file contains the driver for the E-Ink display. The driver is based on a dr
         result = connect_to_wifi(config.wifi_config['ssid'], config.wifi_config['password'])
         print("Connection status:", result)
         ...
+  - **Power Management**: Includes methods to turn off the display and put it into a deep sleep state to conserve energy:
+    ````python
+    def sleep(self):
+      self.send_command(0x02) # power off
+      self.WaitUntilIdle()
+      self.send_command(0x07) # deep sleep
+      self.send_data(0xa5)
     ```
 ### icons.py
 
