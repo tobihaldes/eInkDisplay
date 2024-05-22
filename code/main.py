@@ -4,7 +4,8 @@ from machine import Pin
 import gc
 import micropython
 from picozero import Button
-from config import layout, gallery
+import time
+# from config import layout, gallery
 
 update_flag = 0
 
@@ -28,6 +29,21 @@ def button_ref():
 
 # Main
 if __name__=='__main__':
+    
+    gallery = tiles.tile_gallery([
+                # tiles.Weather_Tile_l(0,0),
+                # tiles.ToDo_Tile(0,0),
+                tiles.Calendar_Tile(0,0),
+                tiles.News_Tile(0,0),
+                ])
+
+    # Add static tiles that will be shown continuously (X, Y)
+    layout = [
+                tiles.Clock_Tile_s(560, 0),
+                tiles.Weather_Tile_s(560, 240),
+                gallery,
+            ]
+    
     gc.enable()
     gc.collect()
     

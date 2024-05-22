@@ -1,5 +1,3 @@
-import tiles
-
 wifi_config = {
     'ssid': 'Notebook von Tobi',
     'password': '1357924680'
@@ -28,20 +26,27 @@ stock_config = {
     'api_token': '7I5ZTASNKQWHN3PT'
 }
 
-# Cycle throgh these tiles in the gallery using the next and previous Button (X, Y)
-gallery = tiles.tile_gallery([
-            #tiles.Weather_Tile_l(0,0),
-            #tiles.ToDo_Tile(0,0),
-            tiles.Calendar_Tile(0,0),
-            tiles.News_Tile(0,0),
-            ])
 
-# Add static tiles that will be shown contiously (X, Y)
-layout = [
-            tiles.Clock_Tile_s(560, 0),
-            tiles.Weather_Tile_s(560, 240),
-            gallery,
-         ]
-
+# def initialize_gallery_and_layout():
+#     from tiles import tile_gallery, Clock_Tile_s, Weather_Tile_s, Calendar_Tile, News_Tile
+# 
+#     # Cycle through these tiles in the gallery using the next and previous Button (X, Y)
+#     gallery = tile_gallery([
+#                 # tiles.Weather_Tile_l(0,0),
+#                 # tiles.ToDo_Tile(0,0),
+#                 Calendar_Tile(0,0),
+#                 News_Tile(0,0),
+#                 ])
+# 
+#     # Add static tiles that will be shown continuously (X, Y)
+#     layout = [
+#                 Clock_Tile_s(560, 0),
+#                 Weather_Tile_s(560, 240),
+#                 gallery,
+#             ]
+# 
+#     return layout
+# 
+# layout = initialize_gallery_and_layout()
 
 
