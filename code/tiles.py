@@ -164,7 +164,7 @@ class Weather_Tile_l(Tile):
         temp_high = [weather_forecast[1]['max_temp'], weather_forecast[2]['max_temp'], weather_forecast[3]['max_temp'], weather_forecast[4]['max_temp'], weather_forecast[5]['max_temp'], weather_forecast[6]['max_temp']]
         temp_low = [weather_forecast[1]['min_temp'], weather_forecast[2]['min_temp'], weather_forecast[3]['min_temp'], weather_forecast[4]['min_temp'], weather_forecast[5]['min_temp'], weather_forecast[6]['min_temp']]
         weather_status = [weather_forecast[1]['weather'], weather_forecast[2]['weather'], weather_forecast[3]['weather'], weather_forecast[4]['weather'], weather_forecast[5]['weather'], weather_forecast[6]['weather']]
-        weather_icon = [weather_forecast[1]['weathercode'], [weather_forecast[2]['weathercode'], [weather_forecast[3]['weathercode'], [weather_forecast[4]['weathercode'], [weather_forecast[5]['weathercode'], [weather_forecast[6]['weathercode']]
+        weather_icon = [weather_forecast[1]['weathercode'], weather_forecast[2]['weathercode'], weather_forecast[3]['weathercode'], weather_forecast[4]['weathercode'], weather_forecast[5]['weathercode'], weather_forecast[6]['weathercode']]
         k=0
         for i in range(6):
             can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
