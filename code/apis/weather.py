@@ -29,6 +29,7 @@ weather_code_mapping = {
     85: "Leichte Schneeschauer",
     86: "Mäßige Schneeschauer",
     95: "Gewitter",
+    96: "Gewitter mit leichtem Hagel",
     99: "Gewitter mit Hagel",
 }
 
@@ -51,10 +52,10 @@ def get_weather_forecast(api_url):
                 min_temp = daily_data["temperature_2m_min"][i]
                 forecast.append({
                     "date": date,
-                    "weather": weather_description,
+                    "weather": str(weather_code),
                     "weathercode": weather_code,
-                    "max_temp": f"{max_temp}°C",
-                    "min_temp": f"{min_temp}°C"
+                    "max_temp": f"{max_temp} C",
+                    "min_temp": f"{min_temp} C"
                 })
             
             return forecast

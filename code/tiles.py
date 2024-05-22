@@ -209,7 +209,7 @@ class Weather_Tile_l(Tile):
                 can.imageblack.blit(icons.draw_icon("nebel"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]>50 and weather_icon[k]<68 or weather_icon[k]>80 and weather_icon[k]<87:
                 can.imageblack.blit(icons.draw_icon("regen"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
-            elif weather_icon[k]==95 or weather_icon[k]==99:
+            elif weather_icon[k]==95 or weather_icon[k]==99 or weather_icon[k]==96:
                 can.imageblack.blit(icons.draw_icon("gewitter"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]>70 and weather_icon[k]<78:
                 can.imageblack.blit(icons.draw_icon("schnee"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
