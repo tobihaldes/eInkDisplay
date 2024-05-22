@@ -18,7 +18,7 @@ toDo_config = {
 
 
 news_config = {
-    'url': 'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=10&apikey=7I5ZTASNKQWHN3PT'
+    'url': 'https://newsapi.org/v2/top-headlines?country=de&pageSize=6&apiKey=01cd449b036149ab84c94a7170eecc7b'
 }
 
 stock_config = {

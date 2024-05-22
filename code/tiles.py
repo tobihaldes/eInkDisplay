@@ -70,516 +70,516 @@ class Clock_Tile_s(Tile):
         #Stundenzahlen
         #can.imageblack.text(timeHour, self.x+120, self.y+120, black)
         #Stundenzahlen
-        if timeHour == 1:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)  
-        
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 2:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 3:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 4:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 5:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-             #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 6:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 7:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 8:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
-        elif timeHour == 9:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1links oben
-            can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
-        elif timeHour == 10:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
-        elif timeHour == 11:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
-        elif timeHour == 12:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 13:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 14:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 15:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-             #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 16:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 17:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 18:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
-        elif timeHour == 19:
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1rechts unten
-            can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
-        elif timeHour == 20:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1mitte
-            can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
-        elif timeHour == 21:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1mitte
-            can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-        elif timeHour == 22:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1mitte
-            can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 23:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1mitte
-            can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2oben
-            can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2links unten
-            can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
-            #Z2unten
-            can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
-        elif timeHour == 24:
-            #Z1oben
-            can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
-            #Z1rechts oben
-            can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
-            #Z1mitte
-            can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
-            #Z1links unten
-            can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
-            #Z1unten
-            can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
-            
-            #Z2links oben
-            can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
-            #Z2rechts oben
-            can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
-            #Z2mitte
-            can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
-            #Z2rechts unten
-            can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
-
-
-
-
-        
-            
-        #Viertelstunden Zeiger 
-        if minuteQuarter == 1:
-            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 1)
-        elif minuteQuarter ==2:
-            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 9)
-        elif minuteQuarter ==3:
-            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 13)
-        elif minuteQuarter ==4:
-            can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 15)
-                
-        can.imageblack.ellipse(self.x+120, self.y+120, 108, 108, black, False)
-        can.imageblack.ellipse(self.x+120, self.y+120, 100, 100, black)
-        can.imagered.ellipse(self.x+120, self.y+120, 100, 100, 0x00, True)
-        #Ziffernblatt oben und unten
-        can.imageblack.rect(self.x+118, self.y+25, 4, 20, black, True)
-        can.imageblack.rect(self.x+118, self.y+195, 4, 20, black, True)
-        #Ziffernblatt links und rechts
-        can.imageblack.rect(self.x+25, self.y+118, 20, 4, black, True)
-        can.imageblack.rect(self.x+195, self.y+118, 20, 4, black, True)
-        #Ziffernblatt kleine Striche
-        can.imageblack.line(self.x+171-5, self.y+33+5, self.x+158, self.y+53, black)
-        can.imageblack.line(self.x+208-5, self.y+69+5, self.x+186, self.y+82, black)
-        can.imageblack.line(self.x+208-5, self.y+171-5, self.x+186, self.y+158, black)
-        can.imageblack.line(self.x+171-5, self.y+208-5, self.x+158, self.y+186, black)
-        can.imageblack.line(self.x+69+5, self.y+208-5, self.x+82, self.y+186, black)
-        can.imageblack.line(self.x+33+5, self.y+171-5, self.x+53, self.y+158, black)
-        can.imageblack.line(self.x+33+5, self.y+69+5, self.x+53, self.y+82, black)
-        can.imageblack.line(self.x+69+5, self.y+33+5, self.x+82, self.y+53, black)   
+#         if timeHour == 1:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)  
+#         
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 2:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 3:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 4:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 5:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#              #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 6:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 7:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 8:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
+#         elif timeHour == 9:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1links oben
+#             can.imageblack.rect(self.x+85, self.y+87, 6, 36, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
+#         elif timeHour == 10:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
+#         elif timeHour == 11:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
+#         elif timeHour == 12:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 13:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 14:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 15:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#              #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 16:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 17:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 18:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
+#         elif timeHour == 19:
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1rechts unten
+#             can.imageblack.rect(self.x+109, self.y+117, 6, 36, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)  
+#         elif timeHour == 20:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1mitte
+#             can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True) 
+#         elif timeHour == 21:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1mitte
+#             can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+#         elif timeHour == 22:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1mitte
+#             can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 23:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1mitte
+#             can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2oben
+#             can.imageblack.rect(self.x+125, self.y+87, 30, 6, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2links unten
+#             can.imageblack.rect(self.x+125, self.y+117, 6, 36, black, True)
+#             #Z2unten
+#             can.imageblack.rect(self.x+125, self.y+147, 30, 6, black, True)
+#         elif timeHour == 24:
+#             #Z1oben
+#             can.imageblack.rect(self.x+85, self.y+87, 30, 6, black, True)
+#             #Z1rechts oben
+#             can.imageblack.rect(self.x+109, self.y+87, 6, 36, black, True)
+#             #Z1mitte
+#             can.imageblack.rect(self.x+85, self.y+117, 30, 6, black, True)
+#             #Z1links unten
+#             can.imageblack.rect(self.x+85, self.y+117, 6, 36, black, True)
+#             #Z1unten
+#             can.imageblack.rect(self.x+85, self.y+147, 30, 6, black, True)
+#             
+#             #Z2links oben
+#             can.imageblack.rect(self.x+125, self.y+87, 6, 36, black, True)
+#             #Z2rechts oben
+#             can.imageblack.rect(self.x+149, self.y+87, 6, 36, black, True)
+#             #Z2mitte
+#             can.imageblack.rect(self.x+125, self.y+117, 30, 6, black, True)
+#             #Z2rechts unten
+#             can.imageblack.rect(self.x+149, self.y+117, 6, 36, black, True)
+# 
+# 
+# 
+# 
+#         
+#             
+#         #Viertelstunden Zeiger 
+#         if minuteQuarter == 1:
+#             can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 1)
+#         elif minuteQuarter ==2:
+#             can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 9)
+#         elif minuteQuarter ==3:
+#             can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 13)
+#         elif minuteQuarter ==4:
+#             can.imagered.ellipse(self.x+120, self.y+120, 107, 107, red, True, 15)
+#                 
+#         can.imageblack.ellipse(self.x+120, self.y+120, 108, 108, black, False)
+#         can.imageblack.ellipse(self.x+120, self.y+120, 100, 100, black)
+#         can.imagered.ellipse(self.x+120, self.y+120, 100, 100, 0x00, True)
+#         #Ziffernblatt oben und unten
+#         can.imageblack.rect(self.x+118, self.y+25, 4, 20, black, True)
+#         can.imageblack.rect(self.x+118, self.y+195, 4, 20, black, True)
+#         #Ziffernblatt links und rechts
+#         can.imageblack.rect(self.x+25, self.y+118, 20, 4, black, True)
+#         can.imageblack.rect(self.x+195, self.y+118, 20, 4, black, True)
+#         #Ziffernblatt kleine Striche
+#         can.imageblack.line(self.x+171-5, self.y+33+5, self.x+158, self.y+53, black)
+#         can.imageblack.line(self.x+208-5, self.y+69+5, self.x+186, self.y+82, black)
+#         can.imageblack.line(self.x+208-5, self.y+171-5, self.x+186, self.y+158, black)
+#         can.imageblack.line(self.x+171-5, self.y+208-5, self.x+158, self.y+186, black)
+#         can.imageblack.line(self.x+69+5, self.y+208-5, self.x+82, self.y+186, black)
+#         can.imageblack.line(self.x+33+5, self.y+171-5, self.x+53, self.y+158, black)
+#         can.imageblack.line(self.x+33+5, self.y+69+5, self.x+53, self.y+82, black)
+#         can.imageblack.line(self.x+69+5, self.y+33+5, self.x+82, self.y+53, black)   
     
 class Weather_Tile_s(Tile):
     width = 240
@@ -595,7 +595,7 @@ class Weather_Tile_s(Tile):
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
         weather_icon = weather_forecast[0]['weathercode']
-        Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 70, 41)
+        Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 0, 0)
         
       
         y_row_counter = 0
@@ -638,12 +638,15 @@ class Weather_Tile_l(Tile):
             can.imageblack.blit(icons.Icon.draw_icon("cloud"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 45 or weather_code == 48:
             can.imageblack.blit(icons.Icon.draw_icon("fog"), x + x_cords + 43, y + y_cords + 40)
-        elif (weather_code > 50 and weather_code < 68) or (weather_code > 80 and weather_code < 87):
+        elif (weather_code > 50 and weather_code < 68) or (weather_code >= 80 and weather_code < 87):
             can.imageblack.blit(icons.Icon.draw_icon("rain"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code == 95 or weather_code == 99 or weather_code == 96:
             can.imageblack.blit(icons.Icon.draw_icon("storm"), x + x_cords + 43, y + y_cords + 40)
         elif weather_code > 70 and weather_code < 78:
             can.imageblack.blit(icons.Icon.draw_icon("snow"), x + x_cords + 43, y + y_cords + 40)
+        else:
+            can.imageblack.rect(x+x_cords, y+y_cords, 100, 100, black, False)
+            print("Weather_Code when no icon found: " + str(weather_code))
 
     
     def draw_canvas(self, can):
@@ -844,20 +847,19 @@ class News_Tile(Tile):
         #Abfrage für Aktienkurs
         price = stock_price(config.stock_config['symbol'], config.stock_config['api_token'])
         #muss nur noch angezeigt werden, nach absprache mit Design Team.
-        print(price)
         news_data =[news_titles[0], news_titles[1], news_titles[2], news_titles[3], news_titles[4], news_titles[5]]
         k=0
-        
+        date, time = get_date_and_time();
         can.imagered.rect(self.x+todo_x_cords[7], self.y+todo_y_cords[7], 270, 110, red, False)   
-        can.imageblack.text("Aktien: ", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 5, black)
-        can.imageblack.text("price", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 20, black)
-        can.imagered.text("Aktualisiert: dd.mm.yy", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 100, red)
+        can.imageblack.text("Aktienkurs für " + config.stock_config['symbol'] + " : ", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 5, black)
+        can.imageblack.text(price, self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 20, black)
+        can.imagered.text("Aktualisiert: " + date, self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 100, red)
         can.imageblack.line(self.x+todo_x_cords[7]+ 0, self.y+todo_y_cords[7]+95, self.x+todo_x_cords[7]+269, self.y+todo_y_cords[7]+95, black)
         
         for i in range(len(news_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 270, 110, black, False)
             
-            can.imageblack.text("Headline: "+str(k+1), self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
+            can.imageblack.text("Headline: "+ news_titles[i], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
             can.imagered.text(news_data[k][1], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
             can.imageblack.line(self.x+todo_x_cords[k]+ 0, self.y+todo_y_cords[k]+95, self.x+todo_x_cords[k]+269, self.y+todo_y_cords[k]+95, black)
             
