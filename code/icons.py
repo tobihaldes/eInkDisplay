@@ -605,19 +605,19 @@ schnee_data = bytearray([
 #             
 #         ])        
         
-def draw_icon(self, icon):
+def draw_icon(icon):
         if icon == "sun":
-            icon_fb = framebuf.FrameBuffer(self.sun_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(sun_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "bewoelkt":
-            icon_fb = framebuf.FrameBuffer(self.bewoelkt_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(bewoelkt_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "wolke":
-            icon_fb = framebuf.FrameBuffer(self.cloud_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(cloud_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "nebel":
-            icon_fb = framebuf.FrameBuffer(self.nebel_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(nebel_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "regen":
-            icon_fb = framebuf.FrameBuffer(self.regen_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(regen_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "gewitter":
-            icon_fb = framebuf.FrameBuffer(self.gewitter_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(gewitter_data, 100, 100, framebuf.MONO_HLSB)
         elif icon == "schnee":
-            icon_fb = framebuf.FrameBuffer(self.schnee_data, 100, 100, framebuf.MONO_HLSB)
+            icon_fb = framebuf.FrameBuffer(schnee_data, 100, 100, framebuf.MONO_HLSB)
         return icon_fb

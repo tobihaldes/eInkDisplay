@@ -1,4 +1,5 @@
 import urequests
+import gc
 
 # Wettercode-Zuordnung basierend auf WMO-Codes
 weather_code_mapping = {
@@ -33,8 +34,10 @@ weather_code_mapping = {
 
 def get_weather_forecast(api_url):
     """Holt die Wettervorhersage und gibt die Details für die nächsten Tage zurück."""
+    gc.collect()
     try:
         response = urequests.get(api_url)
+        print(response)
         if response.status_code == 200:
             json_data = response.json()
             daily_data = json_data["daily"]

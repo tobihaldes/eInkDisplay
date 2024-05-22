@@ -37,7 +37,9 @@ class tile_gallery(Tile):
         self.current_index = (self.current_index - 1) % self.num_tiles
     
     def draw_canvas(self, can):
+        print(self.tiles[self.current_index])
         self.tiles[self.current_index].draw_canvas(can)
+        
       
 class Clock_Tile_s(Tile):
     
@@ -110,7 +112,7 @@ class Weather_Tile_s(Tile):
         can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
-        #weathericon code: [weather_forecast[0]['weathercode']
+        weather_icon = weather_forecast[0]['weathercode']
       
         y_row_counter = 0
         row_count = 0
@@ -196,7 +198,7 @@ class Weather_Tile_l(Tile):
             # Zeichne den Rest der letzten Zeile, wenn sie nicht vollständig war
             if current_row:
                 can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
-            #Weathe Icon
+            #Weather Icon
             if weather_icon[k]==0:
                 can.imageblack.blit(icons.draw_icon("sun"), self.x+weather_x_cords[k]+43, self.y+weather_y_cords[k]+40)
             elif weather_icon[k]==1 or weather_icon[k]==2:

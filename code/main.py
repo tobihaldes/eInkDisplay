@@ -31,8 +31,8 @@ def button_ref():
 if __name__=='__main__':
     
     gallery = tiles.tile_gallery([
-                # tiles.Weather_Tile_l(0,0),
-                # tiles.ToDo_Tile(0,0),
+                tiles.Weather_Tile_l(0,0),
+                tiles.ToDo_Tile(0,0),
                 tiles.Calendar_Tile(0,0),
                 tiles.News_Tile(0,0),
                 ])
