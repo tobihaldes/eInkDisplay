@@ -33,9 +33,12 @@ weather_code_mapping = {
     99: "Gewitter mit Hagel",
 }
 
-def get_weather_forecast(api_url):
+def get_weather_forecast(latitude, longitude):
     """Holt die Wettervorhersage und gibt die Details für die naechsten Tage zurück."""
     gc.collect()
+    
+    api_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min"
+    
     try:
         response = urequests.get(api_url)
         print(response)

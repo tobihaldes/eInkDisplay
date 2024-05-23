@@ -600,7 +600,7 @@ class Weather_Tile_s(Tile):
     def draw_canvas(self, can):
         
         #Get weather data
-        weather_forecast = get_weather_forecast(config.weather_config['url'])
+        weather_forecast = get_weather_forecast(config.weather_config['latitude'], config.weather_config['longitude'])
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         can.imageblack.text("Date: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max temperature: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
@@ -849,7 +849,7 @@ class News_Tile(Tile):
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
         
         #Abfrage der News
-        news_titles = get_latest_news(config.news_config['url'])
+        news_titles = get_latest_news(config.news_config['api_token'], config.news_config['country'])
         
         #Aufrufen der News
         #news_titles[0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')

@@ -1,13 +1,17 @@
 import urequests
 import gc
 
-def get_latest_news(url):
-    """Funktion, die die 5 neuesten Nachrichten von einer API abruft und deren Titel zurückgibt."""
+def get_latest_news(api_token, country):
+    
+    url= f'https://newsapi.org/v2/top-headlines?country={country}&pageSize=6&apiKey={api_token}'
+    
     gc.collect()
     headers = {
     'User-Agent': 'eInkDisplay'
     }
+    
     response = None
+    
     try:
         response = urequests.get(url, headers=headers)
         print(response.json())
