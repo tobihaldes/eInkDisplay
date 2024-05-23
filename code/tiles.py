@@ -24,8 +24,8 @@ class Tile():
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
     
-    def ersetze_umlaute(text):
-    # Ersetze die Umlaute durch die entsprechenden Zeichenfolgen
+    def replace_umlaute(text):
+    # replace die Umlaute durch die entsprechenden Zeichenfolgen
     text = text.replace('ä', 'ae')
     text = text.replace('ö', 'oe')
     text = text.replace('ü', 'ue')
@@ -615,7 +615,7 @@ class Weather_Tile_s(Tile):
         cols = 210 // 8 #Breite des Textfeldes
         current_row = ''
         last_space_index = -1  
-        text = "Weatherstatus: "+weather_forecast[0]['weather']+" "
+        text = "Weatherstatus: "+ replace_umlaute(weather_forecast[0]['weather'])+" "
         
         for i in range(len(text)):
             current_row += text[i]
@@ -695,7 +695,7 @@ class Weather_Tile_l(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1  
-            text = weather_status[k]+" "
+            text = replace_umlaute(weather_status[k])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -751,7 +751,7 @@ class ToDo_Tile(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = todo_data[k][0]+" " 
+            text = replace_umlaute(todo_data[k][0])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -811,7 +811,7 @@ class Calendar_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = calendar_data[k][1]+" "
+            text = replace_umlaute(calendar_data[k][1])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -880,7 +880,7 @@ class News_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = news_data[k]+" " 
+            text = ersetze_umlaute(news_data[k])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
