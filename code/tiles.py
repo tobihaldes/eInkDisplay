@@ -26,15 +26,15 @@ class Tile():
     
     def replace_umlaute(text):
     # replace die Umlaute durch die entsprechenden Zeichenfolgen
-    text = text.replace('ä', 'ae')
-    text = text.replace('ö', 'oe')
-    text = text.replace('ü', 'ue')
-    text = text.replace('Ä', 'Ae')
-    text = text.replace('Ö', 'Oe')
-    text = text.replace('Ü', 'Ue')
-    text = text.replace('ß', 'ss')
+        text = text.replace('ä', 'ae')
+        text = text.replace('ö', 'oe')
+        text = text.replace('ü', 'ue')
+        text = text.replace('Ä', 'Ae')
+        text = text.replace('Ö', 'Oe')
+        text = text.replace('Ü', 'Ue')
+        text = text.replace('ß', 'ss')
     
-    return text
+        return text
 
 class tile_gallery(Tile):
     def __init__(self, tiles):
@@ -615,7 +615,7 @@ class Weather_Tile_s(Tile):
         cols = 210 // 8 #Breite des Textfeldes
         current_row = ''
         last_space_index = -1  
-        text = "Weatherstatus: "+ replace_umlaute(weather_forecast[0]['weather'])+" "
+        text = "Weatherstatus: "+ Tile.replace_umlaute(weather_forecast[0]['weather'])+" "
         
         for i in range(len(text)):
             current_row += text[i]
@@ -695,7 +695,7 @@ class Weather_Tile_l(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1  
-            text = replace_umlaute(weather_status[k])+" "
+            text = Tile.replace_umlaute(weather_status[k])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -751,7 +751,7 @@ class ToDo_Tile(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = replace_umlaute(todo_data[k][0])+" " 
+            text = Tile.replace_umlaute(todo_data[k][0])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -811,7 +811,7 @@ class Calendar_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = replace_umlaute(calendar_data[k][1])+" "
+            text = Tile.replace_umlaute(calendar_data[k][1])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -880,7 +880,7 @@ class News_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = ersetze_umlaute(news_data[k])+" " 
+            text = Tile.replace_umlaute(news_data[k])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
