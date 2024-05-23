@@ -39,6 +39,8 @@ def get_weather_forecast(latitude, longitude):
     
     api_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min"
     
+    response = None
+    
     try:
         response = urequests.get(api_url)
         print(response)
@@ -64,9 +66,30 @@ def get_weather_forecast(latitude, longitude):
             return forecast
         else:
             print(f"Fehler beim Abrufen der Daten von der API: Statuscode {response.status_code}")
-            return None
+            forecast = []
+            forecast.append({
+                    "date": "9999-99-99",
+                    "weather": "Unbekannter Code",
+                    "weathercode": "45",
+                    "max_temp": "Unbekannt",
+                    "min_temp": "Unbekannt"
+                })
+            return forecast
     except Exception as e:
         print(f"Fehler beim Abrufen der Daten von der API: {e}")
-        return None
+        forecast = []
+        forecast.append({
+                "date": "9999-99-99",
+                "weather": "Unbekannter Code",
+                "weathercode": "45",
+                "max_temp": "Unbekannt",
+                "min_temp": "Unbekannt"
+            })
+        return forecast
     finally:
-        response.close()
+        # Die Verbindung schließen, wenn sie geöffnet wurde
+        if response is not None:
+            try:
+                response.close()
+            except AttributeError:
+                pass  # Falls response.close() fehlschlägt, nichts tun
