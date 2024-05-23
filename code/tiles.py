@@ -593,9 +593,8 @@ class Weather_Tile_s(Tile):
         can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
         can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
-        can.imageblack.rect(self.x+70, self.y+41, 100, 100, black, False)
         weather_icon = weather_forecast[0]['weathercode']
-        Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 0, 0)
+        Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 27, 0)
         
       
         y_row_counter = 0
@@ -859,9 +858,9 @@ class News_Tile(Tile):
         for i in range(len(news_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 270, 110, black, False)
             
-            can.imageblack.text("Headline: "+ news_titles[i], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
-            can.imagered.text(news_data[k][1], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
-            can.imageblack.line(self.x+todo_x_cords[k]+ 0, self.y+todo_y_cords[k]+95, self.x+todo_x_cords[k]+269, self.y+todo_y_cords[k]+95, black)
+            can.imageblack.text("Headline: ", self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 5, black)
+            #can.imagered.text(news_data[k][1], self.x+todo_x_cords[k]+ 5, self.y+todo_y_cords[k]+ 100, red)
+            #can.imageblack.line(self.x+todo_x_cords[k]+ 0, self.y+todo_y_cords[k]+95, self.x+todo_x_cords[k]+269, self.y+todo_y_cords[k]+95, black)
             
             y_row_counter = 0
             row_count = 0
@@ -869,7 +868,7 @@ class News_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = news_data[k][0]+" " 
+            text = news_data[k]+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':

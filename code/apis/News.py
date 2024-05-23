@@ -9,7 +9,7 @@ def get_latest_news(url):
     'User-Agent': 'eInkDisplay'
     }
     response = urequests.get(url, headers=headers)
-    print(response)
+    print(response.json())
     try:
         if response.status_code == 200:
             data = response.json()  # Konvertiert die Antwort in ein Python-Diktat
