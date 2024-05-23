@@ -26,27 +26,14 @@ stock_config = {
     'api_token': '7I5ZTASNKQWHN3PT'
 }
 
+gallery_config = [
+    {"type": "Weather_Tile_l", "x": 0, "y": 0},
+    {"type": "ToDo_Tile", "x": 0, "y": 0},
+    {"type": "Calendar_Tile", "x": 0, "y": 0},
+    {"type": "News_Tile", "x": 0, "y": 0},
+]
 
-# def initialize_gallery_and_layout():
-#     from tiles import tile_gallery, Clock_Tile_s, Weather_Tile_s, Calendar_Tile, News_Tile
-# 
-#     # Cycle through these tiles in the gallery using the next and previous Button (X, Y)
-#     gallery = tile_gallery([
-#                 # tiles.Weather_Tile_l(0,0),
-#                 # tiles.ToDo_Tile(0,0),
-#                 Calendar_Tile(0,0),
-#                 News_Tile(0,0),
-#                 ])
-# 
-#     # Add static tiles that will be shown continuously (X, Y)
-#     layout = [
-#                 Clock_Tile_s(560, 0),
-#                 Weather_Tile_s(560, 240),
-#                 gallery,
-#             ]
-# 
-#     return layout
-# 
-# layout = initialize_gallery_and_layout()
-
-
+layout_config = [
+    {"type": "Clock_Tile_s", "x": 560, "y": 0},
+    {"type": "Weather_Tile_s", "x": 560, "y": 240},
+]
