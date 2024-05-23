@@ -23,6 +23,18 @@ class Tile():
     def draw_canvas(self, can):
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
+    
+    def replace_umlaute(text):
+    # replace die Umlaute durch die entsprechenden Zeichenfolgen
+        text = text.replace('ä', 'ae')
+        text = text.replace('ö', 'oe')
+        text = text.replace('ü', 'ue')
+        text = text.replace('Ä', 'Ae')
+        text = text.replace('Ö', 'Oe')
+        text = text.replace('Ü', 'Ue')
+        text = text.replace('ß', 'ss')
+    
+        return text
 
 class tile_gallery(Tile):
     def __init__(self, tiles):
@@ -590,9 +602,9 @@ class Weather_Tile_s(Tile):
         #Get weather data
         weather_forecast = get_weather_forecast(config.weather_config['url'])
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
-        can.imagered.text("Max Temperatur: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
-        can.imageblack.text("Min Temperatur: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
+        can.imageblack.text("Date: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
+        can.imagered.text("Max temperature: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
+        can.imageblack.text("Min temperature: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         weather_icon = weather_forecast[0]['weathercode']
         Weather_Tile_l.draw_weather_tile(can, weather_icon, self.x, self.y, 27, 0)
         
@@ -603,7 +615,7 @@ class Weather_Tile_s(Tile):
         cols = 210 // 8 #Breite des Textfeldes
         current_row = ''
         last_space_index = -1  
-        text = weather_forecast[0]['weather']+" "
+        text = "Weatherstatus: "+ Tile.replace_umlaute(weather_forecast[0]['weather'])+" "
         
         for i in range(len(text)):
             current_row += text[i]
@@ -665,7 +677,7 @@ class Weather_Tile_l(Tile):
         
         weather_x_cords = [0, 187, 374, 0, 187, 374]
         weather_y_cords = [0, 0, 0, 242, 242, 242]
-        weather_dates = ["Datum: " + weather_forecast[1]['date'], "Datum: " + weather_forecast[2]['date'], "Datum: " + weather_forecast[3]['date'], "Datum: " + weather_forecast[4]['date'], "Datum: " + weather_forecast[5]['date'], "Datum: " + weather_forecast[6]['date']]
+        weather_dates = ["Date: " + weather_forecast[1]['date'], "Date: " + weather_forecast[2]['date'], "Date: " + weather_forecast[3]['date'], "Date: " + weather_forecast[4]['date'], "Date: " + weather_forecast[5]['date'], "Date: " + weather_forecast[6]['date']]
         temp_high = [weather_forecast[1]['max_temp'], weather_forecast[2]['max_temp'], weather_forecast[3]['max_temp'], weather_forecast[4]['max_temp'], weather_forecast[5]['max_temp'], weather_forecast[6]['max_temp']]
         temp_low = [weather_forecast[1]['min_temp'], weather_forecast[2]['min_temp'], weather_forecast[3]['min_temp'], weather_forecast[4]['min_temp'], weather_forecast[5]['min_temp'], weather_forecast[6]['min_temp']]
         weather_status = [weather_forecast[1]['weather'], weather_forecast[2]['weather'], weather_forecast[3]['weather'], weather_forecast[4]['weather'], weather_forecast[5]['weather'], weather_forecast[6]['weather']]
@@ -674,8 +686,8 @@ class Weather_Tile_l(Tile):
         for i in range(6):
             can.imageblack.rect(self.x+weather_x_cords[k]-2, self.y+weather_y_cords[k]+10, 2, 220, black, True)
             can.imageblack.text(weather_dates[k], self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+15, black)
-            can.imagered.text("Max Temp.: "+str(temp_high[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+200, red)
-            can.imageblack.text("Min Temp.: "+str(temp_low[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+215, black)
+            can.imagered.text("Max temp.: "+str(temp_high[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+200, red)
+            can.imageblack.text("Min temp.: "+str(temp_low[k]), self.x+weather_x_cords[k]+25, self.y+weather_y_cords[k]+215, black)
             
             y_row_counter = 0
             row_count = 0
@@ -683,7 +695,7 @@ class Weather_Tile_l(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1  
-            text = weather_status[k]+" "
+            text = Tile.replace_umlaute(weather_status[k])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -724,7 +736,7 @@ class ToDo_Tile(Tile):
         
         todo_x_cords = [5, 190, 375, 5, 190, 375, 5, 190, 375, 5, 190, 375]
         todo_y_cords = [5, 5, 5, 120, 120, 120, 235, 235, 235, 350, 350, 350]
-        todo_data = [["Aufgabe: " + tasks[0][0], "Faellig am " + tasks[0][1]], ["Aufgabe: " + tasks[1][0], "Faellig am " + tasks[1][1]], ["Aufgabe: " + tasks[2][0], "Faellig am " + tasks[2][1]], ["Aufgabe: " + tasks[3][0], "Faellig am " + tasks[3][1]], ["Aufgabe: " + tasks[4][0], "Faellig am " + tasks[4][1]], ["Aufgabe: " + tasks[5][0], "Faellig am " + tasks[5][1]], ["Aufgabe: " + tasks[6][0], "Faellig am " + tasks[6][1]], ["Aufgabe: " + tasks[7][0], "Faellig am " + tasks[7][1]], ["Aufgabe: " + tasks[8][0], "Faellig am " + tasks[8][1]], ["Aufgabe: " + tasks[9][0], "Faellig am " + tasks[9][1]], ["Aufgabe: " + tasks[10][0], "Faellig am " + tasks[10][1]]]
+        todo_data = [["Task: " + tasks[0][0], "Due to: " + tasks[0][1]], ["Task: " + tasks[1][0], "Due to: " + tasks[1][1]], ["Task: " + tasks[2][0], "Due to: " + tasks[2][1]], ["Task: " + tasks[3][0], "Due to: " + tasks[3][1]], ["Task: " + tasks[4][0], "Due to: " + tasks[4][1]], ["Task: " + tasks[5][0], "Due to: " + tasks[5][1]], ["Task: " + tasks[6][0], "Due to: " + tasks[6][1]], ["Task: " + tasks[7][0], "Due to: " + tasks[7][1]], ["Task: " + tasks[8][0], "Due to: " + tasks[8][1]], ["Task: " + tasks[9][0], "Due to: " + tasks[9][1]], ["Task: " + tasks[10][0], "Due to: " + tasks[10][1]]]
         k=0
         for i in range(len(todo_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 180, 110, black, False)
@@ -739,7 +751,7 @@ class ToDo_Tile(Tile):
             cols = 170 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = todo_data[k][0]+" " 
+            text = Tile.replace_umlaute(todo_data[k][0])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -781,10 +793,10 @@ class Calendar_Tile(Tile):
         events = get_next_events(config.calendar_config['url'])
         
         if len(events) >= 5:
-            calendar_data = [["Eintrag ", events[0]['summary'], events[0]['start_time']], ["Eintrag ", events[1]['summary'], events[1]['start_time']], ["Eintrag ", events[2]['summary'], events[2]['start_time']], ["Eintrag ", events[3]['summary'], events[3]['start_time']], ["Eintrag ", events[4]['summary'], events[4]['start_time']]]
+            calendar_data = [["Appointment: ", events[0]['summary'], events[0]['start_time']], ["Appointment: ", events[1]['summary'], events[1]['start_time']], ["Appointment: ", events[2]['summary'], events[2]['start_time']], ["Appointment: ", events[3]['summary'], events[3]['start_time']], ["Appointment: ", events[4]['summary'], events[4]['start_time']]]
         else:
             # Handhabung, falls nicht genügend Events vorhanden sind
-            calendar_data = [["Kein Event", "Keine Daten", "N/A"]] * 5  # Erstellt eine Liste mit Platzhaltern
+            calendar_data = [["No Appointment found", "No Data", "N/A"]] * 5  # Erstellt eine Liste mit Platzhaltern
         k=0
         for i in range(len(calendar_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 270, 110, black, False)
@@ -799,7 +811,7 @@ class Calendar_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = calendar_data[k][1]+" "
+            text = Tile.replace_umlaute(calendar_data[k][1])+" "
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':
@@ -850,9 +862,9 @@ class News_Tile(Tile):
         k=0
         date, time = get_date_and_time();
         can.imagered.rect(self.x+todo_x_cords[7], self.y+todo_y_cords[7], 270, 110, red, False)   
-        can.imageblack.text("Aktienkurs für " + config.stock_config['symbol'] + " : ", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 5, black)
+        can.imageblack.text("Share price for " + config.stock_config['symbol'] + " : ", self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 5, black)
         can.imageblack.text(price, self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 20, black)
-        can.imagered.text("Aktualisiert: " + date, self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 100, red)
+        can.imagered.text("Updated: " + date, self.x+todo_x_cords[7]+ 5, self.y+todo_y_cords[7]+ 100, red)
         can.imageblack.line(self.x+todo_x_cords[7]+ 0, self.y+todo_y_cords[7]+95, self.x+todo_x_cords[7]+269, self.y+todo_y_cords[7]+95, black)
         
         for i in range(len(news_data)):
@@ -868,7 +880,7 @@ class News_Tile(Tile):
             cols = 260 // 8 #Breite des Textfeldes
             current_row = ''
             last_space_index = -1
-            text = news_data[k]+" " 
+            text = Tile.replace_umlaute(news_data[k])+" " 
             for i in range(len(text)):
                 current_row += text[i]
                 if text[i] == ' ':

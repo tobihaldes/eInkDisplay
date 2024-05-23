@@ -4,9 +4,9 @@ def get_date_and_time():
     url = 'http://worldtimeapi.org/api/timezone/Europe/Berlin'
     
     # GET-Anfrage an die API senden
-    response = urequests.get(url)
-    
+    response = None
     try:
+        response = urequests.get(url)
         # Überprüfen, ob die Anfrage erfolgreich war
         if response.status_code == 200:
             data = response.json()
@@ -22,7 +22,20 @@ def get_date_and_time():
             return date_part, time_part
         else:
             print(f"Fehler bei der Anfrage: HTTP-Statuscode {response.status_code}")
-            return None, None
+            error_date = "9999-99-99"
+            error_time = "00:00:00"
+            return error_date, error_time
+        
+    except OSError as e:
+        print(f"Ein Netzwerkfehler ist aufgetreten: {e}")
+        error_date = "9999-99-99"
+        error_time = "00:00:00"
+        return error_date, error_time
+    
     finally:
-        # Die Verbindung schließen
-        response.close()
+        # Die Verbindung schließen, wenn sie geöffnet wurde
+        if response is not None:
+            try:
+                response.close()
+            except AttributeError:
+                pass  # Falls response.close() fehlschlägt, nichts tun
