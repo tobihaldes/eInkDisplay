@@ -602,7 +602,7 @@ class Weather_Tile_s(Tile):
         #Get weather data
         weather_forecast = get_weather_forecast(config.weather_config['url'])
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
-        can.imageblack.text("Datum: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
+        can.imageblack.text("Date: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max temperature: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
         can.imageblack.text("Min temperature: " + weather_forecast[0]['min_temp'], self.x+45, self.y+226, black)
         weather_icon = weather_forecast[0]['weathercode']
