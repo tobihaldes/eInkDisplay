@@ -4,7 +4,8 @@ wifi_config = {
 }
 
 weather_config = {
-    'url': 'https://api.open-meteo.com/v1/forecast?latitude=49.1399&longitude=9.2205&daily=weather_code,temperature_2m_max,temperature_2m_min'
+    'latitude': '49.1399'
+    'longitude': '9.2205'
 }
 
 calendar_config = {
@@ -18,7 +19,8 @@ toDo_config = {
 
 
 news_config = {
-    'url': 'https://newsapi.org/v2/top-headlines?country=de&pageSize=6&apiKey=01cd449b036149ab84c94a7170eecc7b'
+    'api_token': '01cd449b036149ab84c94a7170eecc7b'
+    'country': 'de'
 }
 
 stock_config = {
