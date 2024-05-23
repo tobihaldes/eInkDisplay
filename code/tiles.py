@@ -23,6 +23,18 @@ class Tile():
     def draw_canvas(self, can):
         can.imagered.fill(0x00)
         can.imageblack.fill(0xff)
+    
+    def ersetze_umlaute(text):
+    # Ersetze die Umlaute durch die entsprechenden Zeichenfolgen
+    text = text.replace('ä', 'ae')
+    text = text.replace('ö', 'oe')
+    text = text.replace('ü', 'ue')
+    text = text.replace('Ä', 'Ae')
+    text = text.replace('Ö', 'Oe')
+    text = text.replace('Ü', 'Ue')
+    text = text.replace('ß', 'ss')
+    
+    return text
 
 class tile_gallery(Tile):
     def __init__(self, tiles):
