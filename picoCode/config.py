@@ -5,7 +5,7 @@ wifi_config = {
 }
 
 weather_config = {
-    'latitude': '49.1399'
+    'latitude': '49.1399',
     'longitude': '9.2205'
 }
 
@@ -20,7 +20,7 @@ toDo_config = {
 
 
 news_config = {
-    'api_token': '01cd449b036149ab84c94a7170eecc7b'
+    'api_token': '01cd449b036149ab84c94a7170eecc7b',
     'country': 'de'
 }
 

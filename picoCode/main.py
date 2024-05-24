@@ -4,7 +4,8 @@ from machine import Pin
 import gc
 from picozero import Button
 import time
-from config import layout_config, gallery_config
+#from config import layout_config, gallery_config
+import config
 
 update_flag = 0
 
