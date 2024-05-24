@@ -8,21 +8,26 @@ import time
 import config
 
 update_flag = 0
+led = Pin("LED", Pin.OUT)
+led.toggle()
 
 # Button functions
 def button_next():
+    led.toggle()
     gallery.next_tile()
     global update_flag
     update_flag = 0
     print("next tile")
 
 def button_prev():
+    led.toggle()
     gallery.prev_tile()
     global update_flag
     update_flag = 0
     print("previous tile")
 
 def button_ref():
+    led.toggle()
     global update_flag
     update_flag = 0
     print("refresh screen")
@@ -46,6 +51,7 @@ def get_tile(tile_type, x, y):
 
 # Main
 if __name__=='__main__':
+    led.toggle()
     gc.enable()
     gc.collect()
     
@@ -55,7 +61,7 @@ if __name__=='__main__':
     btn_prev = Button(2)                  # KEY0 GP2 pin 4
     btn_prev.when_pressed = button_prev
     btn_ref = Button(4)                  # GP4 pin 6
-    btn_next.when_pressed = button_ref
+    btn_ref.when_pressed = button_ref
     
     # Create tile_gallery from config
     gallery_tiles = [get_tile(tile["type"], tile["x"], tile["y"]) for tile in config.gallery_config]
