@@ -715,7 +715,7 @@ class Weather_Tile_l(Tile):
                 can.imageblack.text(current_row, 12 + weather_x_cords[k], 160 + weather_y_cords[k] + y_row_counter, black) 
             Weather_Tile_l.draw_weather_tile(can, weather_icon[k], self.x, self.y, weather_x_cords[k], weather_y_cords[k])
             k=k+1
-            if k>99:
+            if k>6:
                 break
     
 class ToDo_Tile(Tile):
