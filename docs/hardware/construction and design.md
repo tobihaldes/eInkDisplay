@@ -33,6 +33,15 @@
 ## 2.4 Resistors
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
+## Circuit diagram
+![Schaltung](https://github.com/tobihaldes/eInkDisplay/assets/165897037/0c34166b-3e30-4ae9-bccc-5798e1ae8a13)
+
+Each button is connected to a ground (GND) line and has its own lead.
+Each button's lead is connected to an LED and a resistor (330Ω and 680Ω) in series.
+These LEDs indicate the state of the buttons.
+The transistor controls the current flow through the LEDs. Its collector is connected to the LEDs and resistors, and its emitter is connected to the ground (GND).
+The base of the transistor receives a control signal that switches the transistor on and off, allowing current to flow.
+
 # 3. Housing: 
 ## Dimensions of the Housing
 
@@ -62,7 +71,7 @@
    - **Length:** 165.00 mm
    - **Width:** 111.30 mm
    - **Height:** 24.00 mm
-   - 
+     
 ## General Shape and Structure of the Housing
 
 The housing for the E-Ink display is rectangular and consists of several main components. It has a deep recess to securely hold the display while also providing space for the Raspberry Pi and associated electronic components. The front of the housing is dominated by the screen area, with a slim frame to maximize the visibility of the screen. Three control buttons are positioned below the display, evenly spaced to allow for easy operation. The housing has sufficient depth to accommodate the electronics, with no additional elements on the sides, ensuring a sleek profile. The back of the housing provides space for the power supply and wiring of the electronics. The rear panel is removable to facilitate access to the internal components. The bottom surface offers ample space for stable placement of the housing and is designed to accommodate the power supply components.
