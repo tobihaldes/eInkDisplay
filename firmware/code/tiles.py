@@ -673,7 +673,7 @@ class Weather_Tile_l(Tile):
         can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
         
         #Get weather data
-        weather_forecast = get_weather_forecast(config.weather_config['url'])
+        weather_forecast = get_weather_forecast(config.weather_config['latitude'], config.weather_config['longitude'])
         
         weather_x_cords = [0, 187, 374, 0, 187, 374]
         weather_y_cords = [0, 0, 0, 242, 242, 242]
