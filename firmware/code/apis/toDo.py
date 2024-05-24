@@ -15,7 +15,7 @@ def toDoList(token, project_id):
                 due_info = task['due']
                 due_date = due_info['date'] if due_info and 'date' in due_info else "Kein Fälligkeitsdatum"
                 tasks.append((content, due_date))
-                return tasks
+            return tasks
         else:
             print("Error: Status-Code", response.status_code)
             todo_data = [["Task: Error", "Due to: Unknown"]]

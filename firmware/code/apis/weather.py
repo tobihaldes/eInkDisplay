@@ -70,7 +70,7 @@ def get_weather_forecast(latitude, longitude):
             forecast.append({
                     "date": "9999-99-99",
                     "weather": "Unbekannter Code",
-                    "weathercode": "45",
+                    "weathercode": 45,
                     "max_temp": "Unbekannt",
                     "min_temp": "Unbekannt"
                 })
@@ -81,7 +81,7 @@ def get_weather_forecast(latitude, longitude):
         forecast.append({
                 "date": "9999-99-99",
                 "weather": "Unknown Code",
-                "weathercode": "45",
+                "weathercode": 45,
                 "max_temp": "Unknown",
                 "min_temp": "Unknown"
             })

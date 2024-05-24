@@ -9,13 +9,13 @@ def stock_price(symbol, api_key):
             data = response.json()
             stock_info = data['Global Quote']
             price = stock_info['05. price']
-            result= "Kurs von "+ symbol + ": " + price
+            result= "Price of "+ symbol + ": " + price
             return result
         else:
-            result= "Fehler bei der Anfrage: " + response.status_code
+            result= "Error: " + response.status_code
             return result
     except Exception as error:
-        result = "Ein Fehler ist aufgetreten: "+ str(error)
+        result = "Error: "+ str(error)
         return result
     finally:
         # Die Verbindung schließen, wenn sie geöffnet wurde
