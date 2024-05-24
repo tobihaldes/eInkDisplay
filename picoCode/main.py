@@ -2,7 +2,6 @@ import driver
 import tiles
 from machine import Pin
 import gc
-import micropython
 from picozero import Button
 import time
 from config import layout_config, gallery_config
@@ -26,13 +25,9 @@ def button_ref():
     global update_flag
     update_flag = 0
     print("refresh screen")
-# main.py
 
-import config
-import tiles
-
+# Read tiles from config
 def get_tile(tile_type, x, y):
-    # Dynamische Erstellung der Tile-Objekte basierend auf dem Typ
     if tile_type == "Weather_Tile_l":
         return tiles.Weather_Tile_l(x, y)
     elif tile_type == "ToDo_Tile":
@@ -46,7 +41,7 @@ def get_tile(tile_type, x, y):
     elif tile_type == "Weather_Tile_s":
         return tiles.Weather_Tile_s(x, y)
     else:
-        raise ValueError(f"Unbekannter Tile-Typ: {tile_type}")
+        raise ValueError(f"Unknown Tile-Typ (add customTiles to this function): {tile_type}")
 
 # Main
 if __name__=='__main__':
@@ -58,14 +53,14 @@ if __name__=='__main__':
     btn_next.when_pressed = button_next
     btn_prev = Button(2)                  # KEY0 GP2 pin 4
     btn_prev.when_pressed = button_prev
-    #btn_ref = Button(4)                  # GP4 pin 6
-    #btn_next.when_pressed = button_ref
+    btn_ref = Button(4)                  # GP4 pin 6
+    btn_next.when_pressed = button_ref
     
-    # Erstelle das Gallery-Objekt
+    # Create tile_gallery from config
     gallery_tiles = [get_tile(tile["type"], tile["x"], tile["y"]) for tile in config.gallery_config]
     gallery = tiles.tile_gallery(gallery_tiles)
 
-    # Erstelle das Layout
+    # Create layout from config
     layout = [gallery]
     for item in config.layout_config:
         layout.append(get_tile(item["type"], item["x"], item["y"]))

@@ -1,3 +1,4 @@
+# Api config
 wifi_config = {
     'ssid': 'Notebook von Tobi',
     'password': '1357924680'
@@ -28,6 +29,8 @@ stock_config = {
     'api_token': '7I5ZTASNKQWHN3PT'
 }
 
+
+# Layout and tile config, place tiles at x,y
 gallery_config = [
     {"type": "Weather_Tile_l", "x": 0, "y": 0},
     {"type": "ToDo_Tile", "x": 0, "y": 0},
