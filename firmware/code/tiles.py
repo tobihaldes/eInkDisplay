@@ -1,6 +1,7 @@
 import framebuf
 import config
 import icons
+import gc
 from apis.datetime import get_date_and_time
 from apis.weather import get_weather_forecast
 from apis.toDo import toDoList
@@ -61,7 +62,9 @@ class Clock_Tile_s(Tile):
     def draw_canvas(self, can):
         i = 1
         #Parameter für Stunden und Minuten
+        gc.collect()
         date, time = get_date_and_time();
+        gc.collect()
         timeHour, minute, second = time.split(':')
         
         minute = int(minute)
@@ -599,8 +602,10 @@ class Weather_Tile_s(Tile):
     
     def draw_canvas(self, can):
         
+        gc.collect()
         #Get weather data
         weather_forecast = get_weather_forecast(config.weather_config['latitude'], config.weather_config['longitude'])
+        gc.collect()
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         can.imageblack.text("Date: " + weather_forecast[0]['date'], self.x+50, self.y+16, black)
         can.imagered.text("Max temperature: " + weather_forecast[0]['max_temp'], self.x+45, self.y+211, red)
@@ -672,8 +677,10 @@ class Weather_Tile_l(Tile):
         #Gitternetzlinien Horizontal
         can.imageblack.rect(self.x+10, self.y+240, 540, 2, black, True)
         
+        gc.collect()
         #Get weather data
         weather_forecast = get_weather_forecast(config.weather_config['latitude'], config.weather_config['longitude'])
+        gc.collect()
         
         weather_x_cords = [0, 187, 374, 0, 187, 374]
         weather_y_cords = [0, 0, 0, 242, 242, 242]
@@ -722,9 +729,10 @@ class ToDo_Tile(Tile):
     width = 560
     height = 480
     def draw_canvas(self, can):
-        
+        gc.collect()
         #get Tasks:
         tasks = toDoList(config.toDo_config['api_token'], config.toDo_config['project_id'])        
+        gc.collect()
         print(tasks)
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
         
@@ -789,9 +797,9 @@ class Calendar_Tile(Tile):
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
         
         #get Calendar Data
-        url = 'http://p139-caldav.icloud.com/published/2/MTE1NzQwNjE0NzQxMTU3NDmLjpu4-S1Y9s3ZY6FOrrHnIwf0-kAOhn-6sr24tcTFaqodbcvwQ-1iUIyMWm_Q-QI6qieG29wXJSUU0hdN6JI'
+        gc.collect()
         events = get_next_events(config.calendar_config['url'])
-        
+        gc.collect()
         if len(events) >= 5:
             calendar_data = [["Appointment: ", events[0]['summary'], events[0]['start_time']], ["Appointment: ", events[1]['summary'], events[1]['start_time']], ["Appointment: ", events[2]['summary'], events[2]['start_time']], ["Appointment: ", events[3]['summary'], events[3]['start_time']], ["Appointment: ", events[4]['summary'], events[4]['start_time']]]
         else:
@@ -849,8 +857,9 @@ class News_Tile(Tile):
         todo_y_cords = [5, 120, 235, 350, 5, 120, 235, 350]
         
         #Abfrage der News
+        gc.collect()
         news_titles = get_latest_news(config.news_config['api_token'], config.news_config['country'])
-        
+        gc.collect()
         #Aufrufen der News
         #news_titles[0]   #Baut sich folgendermaßen auf: ('title', 'Kein Titel verfügbar')
         #Da aber News-Tile noch nicht fertig ist, noch auskommentiert.
@@ -906,6 +915,7 @@ class BatteryLow(Tile):
     width = 800
     height = 480
     def draw_canvas(self, can):
+        gc.collect()
         can.imageblack.rect(self.x+0, self.y+0, self.width, self.height, black)
 
         can.imagered.ellipse(self.x+400, self.y+240, 200, 200, red, True, )
@@ -932,6 +942,7 @@ class BatteryLow(Tile):
 
             
 class NoConnection(Tile):
+    gc.collect()
     width = 800
     height = 480
     def draw_canvas(self, can):
