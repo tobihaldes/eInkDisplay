@@ -744,7 +744,7 @@ class ToDo_Tile(Tile):
         
         todo_x_cords = [5, 190, 375, 5, 190, 375, 5, 190, 375, 5, 190, 375]
         todo_y_cords = [5, 5, 5, 120, 120, 120, 235, 235, 235, 350, 350, 350]
-        todo_data = [["Task: " + tasks[0][0], "Due to: " + tasks[0][1]], ["Task: " + tasks[1][0], "Due to: " + tasks[1][1]], ["Task: " + tasks[2][0], "Due to: " + tasks[2][1]], ["Task: " + tasks[3][0], "Due to: " + tasks[3][1]], ["Task: " + tasks[4][0], "Due to: " + tasks[4][1]], ["Task: " + tasks[5][0], "Due to: " + tasks[5][1]], ["Task: " + tasks[6][0], "Due to: " + tasks[6][1]], ["Task: " + tasks[7][0], "Due to: " + tasks[7][1]], ["Task: " + tasks[8][0], "Due to: " + tasks[8][1]], ["Task: " + tasks[9][0], "Due to: " + tasks[9][1]], ["Task: " + tasks[10][0], "Due to: " + tasks[10][1]]]
+        todo_data = [["Task: " + task[0], "Due to: " + task[1]] for task in tasks]
         k=0
         for i in range(len(todo_data)):
             can.imageblack.rect(self.x+todo_x_cords[k], self.y+todo_y_cords[k], 180, 110, black, False)

@@ -17,12 +17,12 @@ def toDoList(token, project_id):
                 tasks.append((content, due_date))
                 return tasks
         else:
-            print("Fehler bei der Anfrage: Status-Code", response.status_code)
-            todo_data = [["Task: Error", "Due to: Unknown"] for _ in range(11)]
+            print("Error: Status-Code", response.status_code)
+            todo_data = [["Task: Error", "Due to: Unknown"]]
             return todo_data
     except Exception as error:
         print("Ein Fehler ist aufgetreten:", error)
-        todo_data = [["Error", "Unknown"] for _ in range(11)]
+        todo_data = [["Error", "Unknown"]]
         return todo_data
     finally:
         if 'response' in locals():
