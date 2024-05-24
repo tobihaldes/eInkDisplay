@@ -31,13 +31,25 @@ def extract_events(ical_data):
 
 def get_next_events(url):
     """Funktion, die die nächsten 5 Ereignisse aus einem iCalendar über eine HTTP-Anfrage abruft."""
-    response = urequests.get(url)
+    response = None
     try:
+        response = urequests.get(url)
         if response.status_code == 200:
             events = extract_events(response.text)
             return events
         else:
             print('Fehler beim Abrufen der Daten:', response.status_code)
-            return []
+            events = [{'summary': 'Keine Daten', 'start_time': '9999-99-99'} for _ in range(8)]
+            return events
+    except OSError as e:
+        print(f"Ein Fehler ist aufgetreten: {e}")
+        events = [{'summary': 'Keine Daten', 'start_time': '9999-99-99'} for _ in range(8)]
+        return events
+    
     finally:
-        response.close()
+        # Die Verbindung schließen, wenn sie geöffnet wurde
+        if response is not None:
+            try:
+                response.close()
+            except AttributeError:
+                pass  # Falls response.close() fehlschlägt, nichts tun

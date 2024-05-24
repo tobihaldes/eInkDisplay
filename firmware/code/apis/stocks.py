@@ -10,11 +10,12 @@ def stock_price(symbol, api_key):
             stock_info = data['Global Quote']
             price = stock_info['05. price']
             result= "Kurs von "+ symbol + ": " + price
+            return result
         else:
             result= "Fehler bei der Anfrage: " + response.status_code
             return result
     except Exception as error:
-        result = "Ein Fehler ist aufgetreten: "+ error
+        result = "Ein Fehler ist aufgetreten: "+ str(error)
         return result
     finally:
         # Die Verbindung schließen, wenn sie geöffnet wurde

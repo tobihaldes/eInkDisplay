@@ -24,11 +24,11 @@ def get_latest_news(api_token, country):
             return titles
         else:
             print('Fehler bei der Anfrage:', response.status_code)
-            titles = ['Kein Titel verfuegbar' for _ in range(5)]
+            titles = ['Kein Titel verfuegbar' for _ in range(6)]
             return titles
     except OSError as e:
         print(f"Ein Fehler ist aufgetreten: {e}")
-        titles = ['Kein Titel verfuegbar' for _ in range(5)]
+        titles = ['Kein Titel verfuegbar' for _ in range(6)]
         return titles
     finally:
         # Die Verbindung schließen, wenn sie geöffnet wurde

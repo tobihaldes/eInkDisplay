@@ -76,14 +76,14 @@ def get_weather_forecast(latitude, longitude):
                 })
             return forecast
     except Exception as e:
-        print(f"Fehler beim Abrufen der Daten von der API: {e}")
+        print(f"Error in weather API: {e}")
         forecast = []
         forecast.append({
                 "date": "9999-99-99",
-                "weather": "Unbekannter Code",
+                "weather": "Unknown Code",
                 "weathercode": "45",
-                "max_temp": "Unbekannt",
-                "min_temp": "Unbekannt"
+                "max_temp": "Unknown",
+                "min_temp": "Unknown"
             })
         return forecast
     finally:
