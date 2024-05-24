@@ -1,4 +1,5 @@
 import urequests
+import gc
 
 def format_datetime(datetime_str):
     """Hilfsfunktion zur Formatierung von iCalendar-Datums-/Zeitstrings."""
@@ -31,6 +32,7 @@ def extract_events(ical_data):
 
 def get_next_events(url):
     """Funktion, die die nächsten 5 Ereignisse aus einem iCalendar über eine HTTP-Anfrage abruft."""
+    gc.collect()
     response = None
     try:
         response = urequests.get(url)
