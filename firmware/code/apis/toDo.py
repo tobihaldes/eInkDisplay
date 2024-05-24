@@ -15,13 +15,16 @@ def toDoList(token, project_id):
                 due_info = task['due']
                 due_date = due_info['date'] if due_info and 'date' in due_info else "Kein Fälligkeitsdatum"
                 tasks.append((content, due_date))
+                return tasks
         else:
             print("Fehler bei der Anfrage: Status-Code", response.status_code)
+            todo_data = [["Task: Error", "Due to: Unknown"] for _ in range(11)]
+            return todo_data
     except Exception as error:
         print("Ein Fehler ist aufgetreten:", error)
-        tasks = None
+        todo_data = [["Error", "Unknown"] for _ in range(11)]
+        return todo_data
     finally:
         if 'response' in locals():
             response.close()
     
-    return tasks
