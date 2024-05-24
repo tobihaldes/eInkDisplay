@@ -15,6 +15,7 @@ def extract_events(ical_data):
     events = []
     lines = ical_data.splitlines()
     in_event = False
+    current_event = {}
     for line in lines:
         if line.startswith('BEGIN:VEVENT'):
             in_event = True
@@ -22,36 +23,34 @@ def extract_events(ical_data):
         elif line.startswith('END:VEVENT'):
             events.append(current_event)
             in_event = False
+            if len(events) >= 5:
+                break  # Stop processing if we have enough events
         elif in_event:
             if line.startswith('SUMMARY:'):
                 current_event['summary'] = line.split(':', 1)[1]
             elif 'DTSTART' in line:
                 time_part = line.split(':', 1)[1]
                 current_event['start_time'] = format_datetime(time_part)
-    return events[:5]
+    return events
 
 def get_next_events(url):
     """Funktion, die die nächsten 5 Ereignisse aus einem iCalendar über eine HTTP-Anfrage abruft."""
     gc.collect()
     response = None
+    events = [{'summary': 'Keine Daten', 'start_time': '9999-99-99'} for _ in range(5)]  # Default events
     try:
         response = urequests.get(url)
         if response.status_code == 200:
             events = extract_events(response.text)
-            return events
         else:
             print('Fehler beim Abrufen der Daten:', response.status_code)
-            events = [{'summary': 'Keine Daten', 'start_time': '9999-99-99'} for _ in range(8)]
-            return events
     except OSError as e:
         print(f"Ein Fehler ist aufgetreten: {e}")
-        events = [{'summary': 'Keine Daten', 'start_time': '9999-99-99'} for _ in range(8)]
-        return events
-    
     finally:
-        # Die Verbindung schließen, wenn sie geöffnet wurde
         if response is not None:
             try:
                 response.close()
             except AttributeError:
                 pass  # Falls response.close() fehlschlägt, nichts tun
+    gc.collect()
+    return events
