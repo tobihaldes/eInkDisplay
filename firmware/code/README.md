@@ -82,7 +82,7 @@ This file defines various icons that can be displayed on the E-Ink display.
           icon_fb = framebuf.FrameBuffer(self.cloud_data, 100, 100, framebuf.MONO_HLSB)
       return icon_fb
   ```
-  ### tiles.py
+### tiles.py
 
 This file defines various types of tiles that can be displayed on the dashboard.
 
