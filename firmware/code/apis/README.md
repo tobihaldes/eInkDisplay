@@ -30,7 +30,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## Calendar API
 
-**File:** [`calendar.py`](/code/apis/calendar.py)
+**File:** [`calendar.py`](/firmware/code/apis/calendar.py)
 
 **Functionality:** Manages calendar events from iCalendar data.
 
