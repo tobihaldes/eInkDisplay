@@ -14,7 +14,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## News API
 
-**File:** [`News.py`](/code/apis/News.py)
+**File:** [`News.py`](/firmware/code/apis/News.py)
 
 **Functionality:** Retrieves the latest news articles and returns their titles.
 
@@ -46,7 +46,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## Datetime API
 
-**File:** [`datetime.py`](/code/apis/datetime.py)
+**File:** [`datetime.py`](/firmware/code/apis/datetime.py)
 
 **Functionality:** Retrieves the current date and time from an API.
 
@@ -60,7 +60,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## Stocks API
 
-**File:** [`stocks.py`](/code/apis/stocks.py)
+**File:** [`stocks.py`](/firmware/code/apis/stocks.py)
 
 **Functionality:** Retrieves real-time stock price information.
 
@@ -77,7 +77,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## ToDo API
 
-**File:** [`toDo.py`](/code/apis/toDo.py)
+**File:** [`toDo.py`](/firmware/code/apis/toDo.py)
 
 **Functionality:** Manages tasks from a project management tool API.
 
@@ -94,7 +94,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## Weather API
 
-**File:** [`weather.py`](/code/apis/weather.py)
+**File:** [`weather.py`](/firmware/code/apis/weather.py)
 
 **Functionality:** Provides weather forecasts including temperature ranges and weather conditions.
 
@@ -110,7 +110,7 @@ This documentation provides an overview of the various APIs integrated within th
 
 ## WiFi API
 
-**File:** [`wifi.py`](/code/apis/wifi.py)
+**File:** [`wifi.py`](/firmware/code/apis/wifi.py)
 
 **Functionality:** Manages WiFi connectivity to connect to networks.
 
