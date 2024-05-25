@@ -38,7 +38,7 @@
 
 Each button is connected to a ground (GND) line and has its own lead.
 Each button's lead is connected to an LED and a resistor (330Ω and 680Ω) in series.
-These LEDs indicate the state of the buttons.
+The LEDs indicates the state of the buttons.
 The transistor controls the current flow through the LEDs. Its collector is connected to the LEDs and resistors, and its emitter is connected to the ground (GND).
 The base of the transistor receives a control signal that switches the transistor on and off, allowing current to flow.
 
