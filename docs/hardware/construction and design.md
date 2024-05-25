@@ -99,3 +99,5 @@ Fusion was used for modeling the housing. Fusion 360 is a cloud-based 3D CAD, CA
 ### Complete Model
 ![technische  Zeichnung 5](https://github.com/tobihaldes/eInkDisplay/assets/165897037/661e2cec-d8a2-4720-9125-cf7d0737470d)
 
+
+
