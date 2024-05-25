@@ -89,4 +89,36 @@ The main file of the project. It initializes the system and contains the logic f
           update_flag -= 1
           time.sleep(1)
   ```
-
+### CustomTiles.py
+  
+This file defines custom tile classes for the project, including a template class for creating new tiles with specific drawing functions.
+  
+  - **Template_Tile Class**: The `Template_Tile` class is a subclass of `Tile` and provides a structure for drawing on a canvas. This class includes attributes for width and height and a `draw_canvas` method for custom drawing.
+     ```python
+    from tiles import Tile
+    import framebuf
+  
+    class Template_Tile(Tile):
+      
+      width = 240
+      height = 240
+      
+      def draw_canvas(self, can):
+          # Draw a rectangle
+          can.fill_rect(10, 10, 100, 50, 1)  # Parameters: x, y, width, height, color
+          
+          # Draw text
+          can.text('Hello, World!', 20, 70, 1)  # Parameters: text, x, y, color
+    ```
+  - **Class Definition:**
+    - `class Template_Tile(Tile):` Defines a new class `Template_Tile` that inherits from the `Tile` class.
+    
+  - **Attributes:**
+    - `width = 240`: Sets the width of the tile to 240 pixels.
+    - `height = 240`: Sets the height of the tile to 240 pixels.
+  
+  - **Methods:**
+    - `def draw_canvas(self, can):` Defines a method for drawing on the canvas.
+      - **fill_rect(x, y, width, height, color):** This method draws a filled rectangle on the canvas. The parameters specify the position (`x`, `y`), dimensions (`width`, `height`), and color of the rectangle.
+      - **text(text, x, y, color):** This method draws text on the canvas. The parameters specify the text to be drawn, the position (`x`, `y`), and the color of the text.
+  
