@@ -34,13 +34,6 @@
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
 ## Circuit diagram
-![Schaltung](https://github.com/tobihaldes/eInkDisplay/assets/165897037/0c34166b-3e30-4ae9-bccc-5798e1ae8a13)
-
-Each button is connected to a ground (GND) line and has its own lead.
-Each button's lead is connected to an LED and a resistor (330Ω and 680Ω) in series.
-The LEDs indicates the state of the buttons.
-The transistor controls the current flow through the LEDs. Its collector is connected to the LEDs and resistors, and its emitter is connected to the ground (GND).
-The base of the transistor receives a control signal that switches the transistor on and off, allowing current to flow.
 
 # 3. Housing: 
 ## Dimensions of the Housing
