@@ -2,7 +2,7 @@
 
 ## Customizing and Compiling the Firmware
 
-To customize the firmware, files from the `Firmware/code` folder need to be compiled in. Use the `manifest.py` file in the same folder for this purpose. The relevant section from `manifest.py` looks like this:
+To customize the firmware, files from the `Firmware/code` folder need to be compiled in. Use the `manifest.py` file for this purpose. The relevant section from `manifest.py` looks like this:
 
 ```python
 include("$(PORT_DIR)/boards/manifest.py")
