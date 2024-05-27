@@ -84,6 +84,9 @@ The WaveShare 7.5-inch E-Paper E-Ink Display Module (B) is securely held within 
 
 Fusion was used for modeling the housing. Fusion 360 is a cloud-based 3D CAD, CAM, and CAE tool for product design and manufacturing. It combines industrial and mechanical design, simulation, collaboration, and machining.
 
+## File of the technical drawing
+**File:** [`E-Ink Display.stl`](/docs/hardware/E-InkDisplay.stl)
+
 
 ## Screenshots of the model from Fusion
 
