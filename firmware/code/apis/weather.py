@@ -71,10 +71,10 @@ def get_weather_forecast(latitude, longitude):
             # Definiere den Inhalt, der hinzugefügt werden soll
             content = {
                 "date": "9999-99-99",
-                "weather": "Unbekannter Code",
+                "weather": "No Data",
                 "weathercode": 45,
-                "max_temp": "Unbekannt",
-                "min_temp": "Unbekannt"
+                "max_temp": "Unknown",
+                "min_temp": "Unknown"
             }
 
             # Füge den Inhalt siebenmal zur Liste hinzu
@@ -88,10 +88,10 @@ def get_weather_forecast(latitude, longitude):
         # Definiere den Inhalt, der hinzugefügt werden soll
         content = {
             "date": "9999-99-99",
-            "weather": "Unbekannter Code",
+            "weather": "No Data",
             "weathercode": 45,
-            "max_temp": "Unbekannt",
-            "min_temp": "Unbekannt"
+            "max_temp": "Unknown",
+            "min_temp": "Unknown"
         }
 
         # Füge den Inhalt siebenmal zur Liste hinzu
