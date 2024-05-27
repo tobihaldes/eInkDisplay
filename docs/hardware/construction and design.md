@@ -34,6 +34,8 @@
 - Metal film resistors: 220.0 kOhm and 10.0 kOhm, 1/4W, ±1%, axial, through-hole mounting
 
 ## Circuit diagram
+![Circuit](https://github.com/tobihaldes/eInkDisplay/assets/165897037/7490043d-26f6-410b-b5ea-cd29a124f882)
+The buttons, labeled BTN_PRV, BTN_NXT, and BTN_REF, are connected to the pins GP2, GP3, and GP4. The circuit is powered by a 3V battery, which is connected through a diode to the VSYS pin, ensuring proper voltage supply. The ground (GND) pin is connected to complete the circuit. 
 
 # 3. Housing: 
 ## Dimensions of the Housing
