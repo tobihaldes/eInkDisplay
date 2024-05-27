@@ -67,24 +67,36 @@ def get_weather_forecast(latitude, longitude):
         else:
             print(f"Fehler beim Abrufen der Daten von der API: Statuscode {response.status_code}")
             forecast = []
-            forecast.append({
-                    "date": "9999-99-99",
-                    "weather": "Unbekannter Code",
-                    "weathercode": 45,
-                    "max_temp": "Unbekannt",
-                    "min_temp": "Unbekannt"
-                })
+
+            # Definiere den Inhalt, der hinzugefügt werden soll
+            content = {
+                "date": "9999-99-99",
+                "weather": "Unbekannter Code",
+                "weathercode": 45,
+                "max_temp": "Unbekannt",
+                "min_temp": "Unbekannt"
+            }
+
+            # Füge den Inhalt siebenmal zur Liste hinzu
+            for _ in range(7):
+                forecast.append(content.copy())
             return forecast
     except Exception as e:
         print(f"Error in weather API: {e}")
         forecast = []
-        forecast.append({
-                "date": "9999-99-99",
-                "weather": "Unknown Code",
-                "weathercode": 45,
-                "max_temp": "Unknown",
-                "min_temp": "Unknown"
-            })
+
+        # Definiere den Inhalt, der hinzugefügt werden soll
+        content = {
+            "date": "9999-99-99",
+            "weather": "Unbekannter Code",
+            "weathercode": 45,
+            "max_temp": "Unbekannt",
+            "min_temp": "Unbekannt"
+        }
+
+        # Füge den Inhalt siebenmal zur Liste hinzu
+        for _ in range(7):
+            forecast.append(content.copy())
         return forecast
     finally:
         # Die Verbindung schließen, wenn sie geöffnet wurde
