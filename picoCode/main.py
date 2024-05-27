@@ -70,7 +70,10 @@ if __name__=='__main__':
     # Create layout from config
     layout = [gallery]
     for item in config.layout_config:
-        layout.append(get_tile(item["type"], item["x"], item["y"]))
+        if item["type"] == "gallery":
+            layout.append(gallery)
+        else:
+            layout.append(get_tile(item["type"], item["x"], item["y"]))
     
     # Initiate display object
     display = driver.EPD_7in5_B(layout)

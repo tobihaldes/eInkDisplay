@@ -41,4 +41,5 @@ gallery_config = [
 layout_config = [
     {"type": "Clock_Tile_s", "x": 560, "y": 0},
     {"type": "Weather_Tile_s", "x": 560, "y": 240},
+    {"type": "gallery"},
 ]
