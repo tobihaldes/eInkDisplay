@@ -7,6 +7,9 @@ class Template_Tile(Tile):
     width = 240
     height = 240
     
+    red = 0xff
+    black = 0x00
+    
     def draw_canvas(self, can):
         can.imagered.ellipse(self.x+200, self.y+10, 100, 100, red, True)
         

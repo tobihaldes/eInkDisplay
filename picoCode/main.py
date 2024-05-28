@@ -6,6 +6,7 @@ from picozero import Button
 import time
 #from config import layout_config, gallery_config
 import config
+import customTiles
 
 update_flag = 0
 led = Pin("LED", Pin.OUT)
@@ -46,6 +47,8 @@ def get_tile(tile_type, x, y):
         return tiles.Clock_Tile_s(x, y)
     elif tile_type == "Weather_Tile_s":
         return tiles.Weather_Tile_s(x, y)
+    elif tile_type == "Custom_Tile":
+        return customTiles.Template_Tile(x, y)
     else:
         raise ValueError(f"Unknown Tile-Typ (add customTiles to this function): {tile_type}")
 

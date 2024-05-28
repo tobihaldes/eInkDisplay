@@ -33,6 +33,7 @@ stock_config = {
 # Layout and tile config, place tiles at x,y
 gallery_config = [
     {"type": "Weather_Tile_l", "x": 0, "y": 0},
+    #{"type": "Custom_Tile", "x": 0, "y": 0},
     {"type": "ToDo_Tile", "x": 0, "y": 0},
     {"type": "Calendar_Tile", "x": 0, "y": 0},
     {"type": "News_Tile", "x": 0, "y": 0},
